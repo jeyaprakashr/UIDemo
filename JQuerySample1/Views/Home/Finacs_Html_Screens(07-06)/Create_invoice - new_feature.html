@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+      <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+      <link type="text/css" rel="stylesheet" href="css/style_5.css"  media="screen,projection"/>
+      <link type="text/css" rel="stylesheet" href="css/credits_style.css"  media="screen,projection"/>
+      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.2.0/css/ion.rangeSlider.css">
+      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.2.0/css/ion.rangeSlider.min.css">
+      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.2.0/css/ion.rangeSlider.skinModern.css">
+      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.2.0/css/ion.rangeSlider.skinModern.min.css">
+      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.2.0/css/ion.rangeSlider.skinModern.min.css.map">
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <style type="text/css">
+        #slide-out-list{
+          width: 300px;
+    left: -12px;
+    top: -265px!important;
+    height: 100px;
+    margin: 0;
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+    height: 100%;
+    height: calc(100% + 258px);
+    height: -moz-calc(100%);
+    /* padding: 10px; */
+    padding-top: 10px;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+    padding-bottom: 10px !important;
+        }
+        #slide-out-list li{
+          line-height: 25px;
+        }
+      </style>
+    </head>
+    <body onLoad="buildHtmlTable()">
+      <!--pre loader-->
+     <!-- <div class="preloader-background">
+        <div id="loading"></div>
+      </div>-->
+    	<!--side nav-->
+      <div class="row">
+       <div class="navbar-fixed">
+        <nav>
+          <div class="nav-wrapper">
+            <ul class="left">
+              <li><img src="images/finacs_logo_FA.jpg" alt="" class="circle responsive-img"></li>
+              <li><h5>FINACS</h5></li>
+              <li><h5 id="admin"></h5></li>
+            </ul>          
+            <ul class="right hide-on-med-and-down">
+              <li><i class="material-icons">search</i></li>
+              <li><a href="index_modules.html" style="padding: 0px;"><i class="material-icons">apps</i></a></li>
+              <li><i class="material-icons">notifications</i></li>
+              <li><i class="material-icons">settings</i></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </div>            
+        <ul  class="menu">
+                  <li id="a" class="menu-button home" >
+                    <a href="#!"  class="tooltipped" data-position="right" data-delay="50" data-tooltip="Favorites" >
+                    <i class="material-icons">star</i>
+                    </a>
+                  </li>
+                  <li id="b" class="menu-button home"><a  href="#!"  class="tooltipped" data-position="right" data-delay="50" data-tooltip="Student Billing" ><i class="material-icons">folder_shared</i> <!--Student Billing--></a>
+
+                  </li>
+                  <li id="c" class="menu-button home"><a  href="#!"  class="tooltipped" data-position="right" data-delay="50" data-tooltip="Account Receivables" ><i class="material-icons">account_balance_wallet</i><!--<img src="images/acc_rec_icon.png">--> <!--Account Receivables--></a>
+
+                  </li>
+                  <li class="menu-button home"><a  href="#!"  class=" tooltipped" data-position="right" data-delay="50" data-tooltip="Purchase" ><i class="material-icons">shop</i> <!--Purchase--></a>
+
+                  </li>
+                  <li class="menu-button home"><a  href="#!"  class="tooltipped" data-position="right" data-delay="50" data-tooltip="Account Payables" ><i class="material-icons">payment</i> <!--Account Payables--></a>
+
+                  </li>
+                  <li class="menu-button home"><a  href="#!"  class="tooltipped" data-position="right" data-delay="50" data-tooltip="General Ledger" ><i class="material-icons">book</i> <!--General Ledger--></a>
+
+                  </li>
+                  <li class="menu-button home"><a  href="#!"  class="tooltipped" data-position="right" data-delay="50" data-tooltip="Fixed Assets" ><i class="material-icons">assignment</i> <!--Fixed Assets--></a>
+
+                  </li>
+                  <li class="menu-button home"><a  href="#!"  class="tooltipped" data-position="right" data-delay="50" data-tooltip="Budgeting" ><i class="material-icons">account_balance</i><!--Budgeting--></a>
+
+                  </li>
+                  <li class="menu-button home"><a   href="#!" class="tooltipped" data-position="right" data-delay="50" data-tooltip="Inventory" ><i class="material-icons">list</i> <!--Inventory--></a>
+
+                  </li>
+                  <li class="menu-button home"><a  href="#!"  class="tooltipped" data-position="right" data-delay="50" data-tooltip="Payroll" ><i class="material-icons">attach_money</i> <!--Payroll--></a>
+
+                  </li>
+                  <li class="menu-button home"><a  href="#!"  class="tooltipped" data-position="right" data-delay="50" data-tooltip="Utilities" ><i class="material-icons">settings</i> <!--Utilities--></a>
+                  </li>
+                </ul>
+                <ul  class="menu-bar"  >
+                  <!-- <li><a href="#!" class="menu-button">Transactions</a></li>
+                  <li><a href="#!">Reports</a></li> -->                    
+                </ul>
+        <main>
+          <!--search family-->
+             <div class="row">
+                <div class="col s12 m12 l12">
+                  <div class="row">
+                    <div class="col l6" style="color: grey;">
+                    <p class="left breadcrumb">Student Billing</p>
+                    <i class="material-icons left" style="margin-top: 5px;margin-right: 0px;">keyboard_arrow_right</i>
+                    <p class="left breadcrumb" style="display: block; ">Create Student Invoice</p>
+                    </div>
+                  </div>
+                    <ul class="collapsible" data-collapsible="accordion"">
+                      <li>
+                        <div class="collapsible-header"><i class="material-icons">search</i><b>Search</b></div>
+                        <div class="collapsible-body">
+                          <span>
+                            <ul>
+                              <li>
+                                <!--<div class="input-field col l3">
+                                  <i class="material-icons prefix form_icon">people</i>
+                                  <input type="text" id="autocomplete-input" class="autocomplete">
+                                  <label for="autocomplete-input">Family Code</label>
+                                </div>-->
+                                
+                                <div class="input-field col l3">
+                                    <select class="check">
+                                      <option value="" disabled selected>Choose Student</option>
+                                        <option value="1">Option 1</option>
+                                        <option value="2">Option 2</option>
+                                        <option value="3">Option 3</option>
+                                        <option value="4" href="#modal_add_family" data-icon=images/add_box.png class="left circle" style="font-size: 10px;">Add Family</option>
+                                        <div id="modal_add_family" class="modal bottom-sheet">
+                                           <div class="modal-content">
+                                             <h4>Modal Header</h4>
+                                             <p>A bunch of text</p>
+                                           </div>
+                                           <div class="modal-footer">
+                                             <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+                                           </div>
+                                         </div>
+                                    </select>
+                                    <label></label>
+                                  </div>
+                                </li>
+                                <!--<div class="col l3 input-field">
+                                  <i class="material-icons prefix form_icon">people</i>
+                                  <input  type="text" id="fcode" class="dropdown-button" data-activates="dropdown2"  placeholder="Search by Family"> 
+                               </div>
+                                       <div id="dropdown2" class="dropdown-content mega"> 
+                                       <table id="tableID" class="highlight black-text">
+                                       <thead>
+                                       <tr>
+                                        <th>Family Code</th>
+                                        <th>Family Name</th>
+                                        <th>Student</th>
+                                        <th>Grade</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                        <td>Br001</td>
+                                        <td>Mr.Mrs.Brown</td>
+                                        <td>Alvin</td>
+                                        <td>5</td>
+                                        </tr>
+                                        <tr>
+                                        <td>Br001</td>
+                                        <td>Mr.Mrs.Brown</td>
+                                        <td>Alan</td>
+                                        <td>3</td>
+                                        </tr>
+                                        <tr>
+                                        <td>Dn001</td>
+                                        <td>Mr.Mrs.Dennis</td>
+                                        <td>Jonathan</td>
+                                        <td>2</td>
+                                        </tr>
+                                        <tr>
+                                        <td>Ht001</td>
+                                        <td>Mr.Mrs.Heather</td>
+                                        <td>Adam</td>
+                                        <td>2</td>
+                                        </tr>
+                                        </tbody>
+                                        </table>
+                                        </div>
+                              </li>
+                              
+                              <li>
+                                <div class="input-field col l3">
+                                  <i class="material-icons prefix form_icon">person</i>
+                                  <input type="text" id="sname"  placeholder="Student">
+                                </div>
+                                   
+                              </li>
+                              
+                              <li>
+                                <div class="input-field col l3">
+                                  <i class="material-icons prefix form_icon ">speaker_notes</i>
+                                  <input type="text" id="inumber" class="dropdown-button" data-activates="dropdown3" placeholder="Invoice number">
+                                  
+
+                                </div>
+                                <div id="dropdown3" class="dropdown-content mega"> 
+                                        <table id="tableID3" class="highlight black-text">
+                                        <thead>
+                                        <tr>
+                                        <th>S.No</th>
+                                        <th>Invoice number</th>
+                                        <th>Bill To ID</th>
+                                        <th>Bill To Name</th>
+                                        <th>Invoice Date</th>
+                                        <th>Total Amount</th>
+                                        <th>Paid Amount</th>
+                                        <th>Credit Amount</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                        <td>1</td>
+                                        <td>SI0000529</td>
+                                        <td>Br0001</td>
+                                        <td>Mr.Mrs.Brown</td>
+                                        <td>11/06/2017</td>
+                                        <td >1500.00</td>
+                                        <td>50.00</td>
+                                        <td>125.00</td>
+                                        </tr>
+                                        </tbody>
+                                        </table>
+                                        </div>
+                              </li>-->
+                             <li>
+                                <a class="btn-floating modal-trigger tooltipped " href="#modal1" data-position="down" data-delay="50" data-tooltip="Filter Fields"><i class="material-icons">filter_list</i></a>
+                                <span style="padding-left: 25px;">
+                                <a class="waves-effect waves-light btn " href="#add_billing_charges"><i class="material-icons left">search</i>search</a>
+                                </span>
+                              </li>
+                                 <!-- Modal Structure -->
+                              <div id="modal1" class="modal modal-fixed-footer" style="width: 50em;">
+                              <div class="modal-content">
+                              <h4>Search/Display Fields</h4>
+                                  <p>Select the database fiels for search and display</p><br>
+                                  <div class="row">
+                                    <div class="col l6">
+                                      <div class="input-field col s12">
+                                      <select multiple>
+                                        <option value="" disabled selected>Select Search Fields</option>
+                                        <option value="1">Family Code</option>
+                                        <option value="2">Family Name</option>
+                                        <option value="3">Address 1</option>
+                                        <option value="4">Address 2</option>
+                                        <option value="5">City</option>
+                                        <option value="6">State Code</option>
+                                        <option value="7">Zip Code</option>
+                                      </select>
+                                      <label></label>
+                                      </div>
+                                    </div>
+                                  <div class="col l6">
+                                      <div class="input-field col s12">
+                                      <select multiple>
+                                        <option value="" disabled selected>Select Display Fields</option>
+                                        <option value="1">Family Code</option>
+                                        <option value="2">Family Name</option>
+                                        <option value="3">Address 1</option>
+                                        <option value="4">Address 2</option>
+                                        <option value="5">City</option>
+                                        <option value="6">State Code</option>
+                                        <option value="7">Zip Code</option>
+                                      </select>
+                                      <label></label>
+                                  </div>
+                                  </div>
+                                </div>
+                              </div>
+                            <div class="modal-footer">
+                              <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Accept</a>
+                              <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Decline</a>
+                            </div>
+                         </div>
+                            </ul>
+                          </span>
+                        </div>
+                      </li>
+                    </ul>
+                </div>
+              </div>
+    <!--end of search-->
+    <!-- block quote cards-->
+    
+    <div class="row">
+      <div class="col l12 left">
+        <div class="card" id="credits_div" >
+          <div class="card-content" id="masterdiv">
+
+                    <ul class="info_items"> 
+                        <li class="form_icon activator"><i class="material-icons medium">description</i></li>
+                        <li class="card-title"><h5 class="title">INVOICE SI00001</h5><h6 class="sub-title">Mr.Mrs.Brown</h6><h6 class="sub-title">Dec 11,2017</h6></li>
+                        <li class="right activator" id="vert_icon"><i class=" material-icons activator">keyboard_arrow_up</i></li>
+                      </ul>
+                        <div class="block_pannel">
+                        <ul>                  
+                          <li class="right"><blockquote id="due">Balance Due<br>$1325.00</blockquote></li>
+                          <li class="right"><blockquote id="charges">Total Charges<br>$1500.00</blockquote></li>
+                          <li class="right"><blockquote id="pay">Total Payments<br>$50.00</blockquote></li>
+                          <li class="right"><blockquote id="credits">Total Credits<br>$125.00</blockquote></li>
+                        </ul>
+                        </div>
+
+                        <div class="row">
+                            <form class="col s12">
+                              <!--<input type="text" id="range_03" name="example_name" value="" />-->
+                              <div class="row">
+                                <div class="input-field col s12">
+                                  <input id="input_text" type="text" data-length="50" />
+                                  <label for="input_text">Note</label>
+                                </div>
+                              </div>
+                            </form>
+                          </div>                   
+                    
+                    
+                  <div class="card-content grey lighten-4">
+                    <div id="test4">   
+                      <!--table for billing charges-->
+                      <table id="Billing_table">
+                          <thead>
+                          <tr>
+                              <th>Student Name</th>
+                              <th>Charge Date</th>
+                              <th>Due Date</th>
+                              <th>Description</th>
+                              <th>Amount</th>
+                              <th>Balance</th>
+                              <th>Paid Amount</th>
+                              <th>Credit Amount</th>
+                              <th>Account Code</th>                             
+                          </tr>
+                          </thead>
+                          <tbody class="table_body">
+                            <tr class="deletable_row_1">
+                              <td> Alan</td>
+                              <td>11/03/2017</td>
+                              <td>11/03/2017</td>
+                              <td>Late Fee</td>
+                              <td contenteditable="true">25</td>
+                              <td contenteditable="true">25</td>
+                              <td>0.00</td>
+                              <td>0.00</td>
+                              <td>300002</td>
+                             <!--<td><i class="material-icons form_icon" style="font-size: 20px;">edit</i></td>-->
+                             <td class="del_row"><i class="material-icons form_icon" style="font-size: 20px;cursor: pointer;">delete</i></td>                                  
+                          </tr>
+                            <tr class="deletable_row_2">
+                              <td>Alvin</td>
+                              <td>11/03/2017</td>
+                              <td>11/03/2017</td>
+                              <td>Registration Fee</td>
+                              <td>1500</td>
+                              <td>725</td>
+                              <td>50</td>
+                              <td>725</td>
+                              <td>300000</td>
+                              <!--<td><i class="material-icons form_icon" style="font-size: 20px;">edit</i></td>-->
+                              <td class="del_row"><i class="material-icons form_icon" style="font-size: 20px;cursor: pointer;">delete</i></td>                                  
+                          </tr>
+                          <tr class="deletable_row_3">
+                              <td>Alvin</td>
+                              <td>12/01/2017</td>
+                              <td>12/01/2017</td>
+                              <td>Tution Monthly</td>
+                              <td>800</td>
+                              <td>800</td>
+                              <td>0.00</td>
+                              <td>0.00</td>
+                              <td>300001</td>
+                              <!--<td><i class="material-icons form_icon" style="font-size: 20px;">edit</i></td>-->
+                              <td class="del_row"><i class="material-icons form_icon" style="font-size: 20px;cursor: pointer;">delete</i></td>                                 
+                          </tr>
+                          </tbody>
+                      </table>                        
+                        <!--<a href="#" id="add_billing" class="right waves-effect waves-light btn-floating btn-medium " >
+                        <i class="material-icons right">add</i></a>-->
+                        <a class="waves-effect waves-light btn modal-trigger" href="#add_billing_charges"><i class="material-icons left">add</i>Add Charges</a>
+                        <div id="add_billing_charges" class="modal modal-fixed-footer">
+                           <div id="billing_charges_content" class="modal-content" style="display: none;">
+                           	<div class="row">
+                           	 <span class="col left"><i class="material-icons small">receipt</i></span>
+                             <h5 class="col left">Billing Charges<i class="material-icons tiny">keyboard_arrow_right</i><span class="badge" data-badge-caption="Mr.Mrs Brown" style="margin-top: 4px; margin-left: 0px;"></span></h5>
+                             <span class="col right">
+                             	<span id="charges"><blockquote><b>Total Charges<br><div id="tot_charges">0</div></b></blockquote></span>
+                             </span>
+                             </div>
+                             <form id="myForm">
+                                                 <div class="row">
+                                                   <div class="col l12">
+                                                 <div class="bill_inputs">
+                                                   <ul class="bill_ul">
+                                                     <li class="col l4">
+                                                       <div class="input-field">
+                                                         <i class="material-icons prefix form_icon">people_outline</i>
+                                                           <select id="sibiling_name">
+                                                             <option value="" disabled selected>Choose Sibling</option>
+                                                                 <option value="1">Alvin, Brown</option>
+                                                                 <option value="2">Alan, Brown</option>
+                                                                 </select>
+                                                           
+                                                         </div>
+                                                     </li>
+                                                     <li class="col l4">
+                                                       <div class="input-field">
+                                                       	<i class="material-icons prefix form_icon">description</i>
+                                                         <select id="acc_type" name="acc_type">
+                                                           <option value="" disabled selected>Charges Description</option>
+                                                           <option value="1">Registration Fee</option>
+                                                           <option value="2">Summer Camp</option>
+                                                           <option value="3">Tuition Monthly</option>
+                                                         </select>                          
+                                                       </div>
+                                                       <!--<div class="input-field">
+                                                           <i class="material-icons prefix form_icon">list</i>
+                                                           <input type="text" id="acc_code" class="autocomplete">
+                                                           <label for="autocomplete-input">Account Code</label>
+                                                         </div>-->
+                                                     </li>
+                                                     <li class="col l4">
+                                                       <div class="input-field">
+                                                           <i class="material-icons prefix form_icon">attach_money</i>
+                                                           <input id="amount" name="amount" type="text" class="validate" placeholder="Amount">
+                                                           <label for="icon_prefix"></label>
+                                                       </div>
+                                                     </li>
+                                                   </ul>
+                                                   
+                                                 </div>
+                                                 </div>
+                                                 </div>
+
+                                                 </form>  
+                                                 <div class="row"> 
+                                                 <div class="col l12">              
+                                                 <div class="button_prop">
+                                                 <form class="prop" action="#">
+                                                   <p class="col l3">
+                                                     <input class="with-gap" name="group1" type="radio" id="test3"  />
+                                                     <label for="test3">Single Invoice</label>
+                                                   </p>
+                                                   <p class="col l3">
+                                                     <input class="with-gap" name="group1" type="radio" id="test4" />
+                                                     <label for="test4">Multiple Invoice</label>
+                                                   </p>
+                                                   <p class="col l3">
+                                                     <input type="checkbox" id="test5" />
+                                                     <label for="test5">Full Amount</label><br>
+                                                   </p>
+                                                   <a id="add_bill" class="waves-effect waves-light btn"><i class="material-icons left">add</i>INSERT</a>
+                                                 </form> 
+                                                 </div>
+                                                 </div>  
+                                                 </div> 
+                                                 <div class="card-tabs">
+                                                 <ul class="tabs tabs-fixed-width col l3">
+                                                   <li class="tab"><a class="active" href="#test4">Recurrences</a></li>
+                                                 </ul>
+                                               </div>
+                                               <div class="card-content ">
+                                                 <div id="test4">
+                                                  
+                                                   <!--table for billing charges-->                     
+                                                   <div>
+                                                   <table id="table_container">
+                                                     <thead>
+                                                       <tr>
+                                                           <th>S.No</th>
+                                                           <th>Charge Date</th>
+                                                           <th>Due Date</th>
+                                                           <th>Amount</th>
+                                                           <th>Account Code</th>
+                                                           <th>Account Name</th>
+                                                           <th>School Year</th>
+                                                       </tr>
+                                                     </thead>  
+                                                     <tbody>
+                                                                                                                             
+                                                     </tbody>                     
+                                                   </table>                        
+                                                   </div>
+                                                 </div>
+                                               </div>
+                           </div>
+                           <div id="set_recurrence_content" class="modal-content" style="display: none;">
+                           	<div class="row">
+                              <span class="col left"><i class="material-icons small">settings</i></span>
+                           	    <h5 class="col left">Recurrence</h5>
+                              <span class="col right">
+                                <div class="input-field ">
+                                <select>
+                                    <option value="" disabled selected>Payment Terms</option>
+                                    <option value="1">Immediate</option>
+                                    <option value="2">30 Day Credit</option>
+                                    <option value="3">45 Day Credit</option>
+                                    <option value="3">60 Day Credit</option>
+                                </select>
+                                <label></label>
+                            </div>
+                              </span>
+                           	</div>
+                           	
+                           	<div class="card-tabs">
+                           	<ul id="tabs-swipe-demo" class="tabs">
+                           	    <li class="tab col s6"><a class="active" href="#test-swipe-1">Set Patterns to Specify Charge Dates</a></li>
+                           	    <li class="tab col s6"><a href="#test-swipe-2">Specify Charge Dates Manually</a></li>
+                           	 </ul>
+                           	</div>
+                           	<div class="card-content grey lighten-4">
+                           	  <div id="test-swipe-1" class="col s12">
+                           	  	<div class="row">
+                           	  		<div class="input-field col s6">
+                           	  			<input placeholder="Placeholder" id="first_name" type="Number" class="validate">
+                           	  		    <label for="first_name">No of Times</label>
+                           	  		</div>
+                           	  		<div class="input-field col s6">
+                           	            <input type="text" class="datepicker">
+                           	            <label>Charge From</label>
+                           	        </div>
+                           	  	</div>
+                           	  	<div class="row">
+                           	  		<div class=" col s6">
+                           	  		  <input class="with-gap" name="group1" type="radio" id="monthly_rec"/>
+                           	  			<label for="monthly_rec">Monthly</label>
+                           	  		</div>
+                           	  		<div class=" col s6">
+                           	  		    <input class="with-gap" name="group1" type="radio" id="weekly_rec"/>
+                           	  			<label for="weekly_rec">Weekly</label>
+                           	  		</div>
+                           	  	</div>
+                                <br>
+                           	  	<div class="row">
+                                  <div class="col l12" id="month_rec_cnt" style="display: none;">
+                                    <div class="col l6">
+                           	  		<div class="input-field col s6">
+                           	  		   <input id="day" name="number" type="number" class="validate">
+                           	  		   <label for="day">Day</label>
+                           	  		</div>
+                           	  		<div class="input-field col s6">
+                           	  		   <input id="month" name="email" type="number" class="validate">
+                           	  		   <label for="month">of every (_) months</label>
+                           	  		</div>
+                                  </div>
+                                  <div class="input-field col s2">
+                                     <select>
+                                      <option value="" disabled selected>The(_) day</option>
+                                      <option value="1">First</option>
+                                      <option value="2">Second</option>
+                                      <option value="3">Third</option>
+                                      <option value="4">Four</option>
+                                      <option value="5">Last</option>
+                                    </select>
+                                  </div>
+                                  <div class="input-field col s2">
+                                     <select>
+                                      <option value="" disabled selected>of</option>
+                                      <option value="1">Monday</option>
+                                      <option value="2">Tuesday</option>
+                                      <option value="3">Wednesday</option>
+                                      <option value="4">Thursday</option>
+                                      <option value="5">Friday</option>
+                                      <option value="6">Saturday</option>
+                                      <option value="7">Sunday</option>
+                                    </select>
+                                  </div>
+                                  <div class="input-field col s2">
+                                     <input id="month" name="email" type="number" class="validate">
+                                     <label for="month">every (_) months</label>
+                                  </div>
+                                  </div>
+                                   <div class="col s12" id="week_rec_cnt" style="display: none;">
+                                   <div class="input-field col s6">
+                                     <input id="month" name="email" type="number" class="validate">
+                                     <label for="month">Recur every (_) weeks on</label>
+                                  </div>  
+                                  <div class="col s6">
+                                    <ul>
+                                      <li class="col s"><input  type="checkbox" id="myCheckbox1" class="filled-in" /><label  for="myCheckbox1">Monday</label></li>
+                                      <li class="col s3"><input  type="checkbox" id="myCheckbox2" class="filled-in" /><label  for="myCheckbox2">Tuesday</label></li>
+                                      <li class="col s3"><input  type="checkbox" id="myCheckbox3" class="filled-in" /><label  for="myCheckbox3">Wednesday</label></li>
+                                      <li class="col s3"><input type="checkbox" id="myCheckbox4" class="filled-in" /><label  for="myCheckbox4">Thursday</label></li>
+                                      <li class="col s3"><input type="checkbox" id="myCheckbox5" class="filled-in" /><label  for="myCheckbox5">Friday</label></li>
+                                      <li class="col s3"><input type="checkbox" id="myCheckbox6" class="filled-in" /><label  for="myCheckbox6">Saturday</label></li>
+                                      <li class="col s3"><input type="checkbox" id="myCheckbox7" class="filled-in" /><label  for="myCheckbox7">Sunday</label></li>
+                                    </ul>
+                                  </div>
+                                </div>
+                           	  	</div>
+                                <div class="row">
+                                  <div class="col l12">
+                                    <table id="table_container">
+                                      <thead>
+                                        <tr>
+                                            <th>S.No</th>
+                                            <th>Charge Date</th>
+                                            <th>Due Date</th>
+                                        </tr>
+                                      </thead>  
+                                      <tbody>
+                                         <tr>
+                                           <td>1</td>
+                                           <td>11/02/2013</td>
+                                           <td>11/03/2013</td>
+                                         </tr>
+                                         <tr>
+                                           <td>2</td>
+                                           <td>11/04/2013</td>
+                                           <td>11/05/2013</td>
+                                         </tr>                                                                     
+                                      </tbody>                     
+                                    </table>
+                                  </div>
+                                </div>
+                           	  </div>
+                           	  <div id="test-swipe-2" class="col s12">
+                           	  	<div class="row">
+                                  <div class="col l12">
+                                    <table id="table_container">
+                                      <thead>
+                                        <tr>
+                                            <th>S.No</th>
+                                            <th>Charge Date</th>
+                                            <th>Due Date</th>
+                                        </tr>
+                                      </thead>  
+                                      <tbody>
+                                         <tr>
+                                           <td>1</td>
+                                           <td><input type="text" class="datepicker"></td>
+                                           <td><input type="text" class="datepicker"></td>
+                                         </tr>
+                                      </tbody>                     
+                                    </table>
+                                  </div>
+                                </div>
+                           	  </div>
+                           	</div>
+                           </div>
+                           <div class="modal-footer">
+                           	<a id="setup_recurrence" style="display: none;" class="waves-effect waves-light btn left" style="background-color: #0b5a96;font-size: 13px;"><i class="material-icons left">settings</i>Setup Recurrence</a>
+                            <a id="billing_charges" style="display: none;" class="waves-effect waves-light btn left" style="background-color: #0b5a96;font-size: 13px;"><i class="material-icons left">receipt</i>Billing Charges</a>
+                             <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Cancel</a>
+                             <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Save</a>
+                           </div>
+                         </div>                      
+                    </div>
+                   
+                    
+                  </div>
+            </div>
+
+            <div class="card-content" id="billing_template" style="display: none;">
+                    <form id="myForm">
+                    <div class="row">
+                    <div class="col l12">
+                    <ul class="info_items" id="tc_access"> 
+                        <li class="card-title"><div class="card-title">Mr.Mrs.Brown<i class="material-icons">keyboard_arrow_right</i>Billing Charges</div></li>
+                        <li id="charges"><i class=" material-icons activator">more_vert</i></li>                       
+                        <li id="charges"><blockquote><b>Total Charges<br><div id="tot_charges">0</div></b></blockquote></li>                        
+                    </ul>
+                    </div>
+                    </div>
+                    <div class="row">
+                      <div class="col l12">
+                    <div class="bill_inputs">
+                      <ul class="bill_ul">
+                        <li class="col l3">
+                          <div class="input-field">
+                            <i class="material-icons prefix form_icon">people_outline</i>
+                              <select id="sibiling_name">
+                                <option value="" disabled selected>Choose Sibling</option>
+                                    <option value="1">Alvin, Brown</option>
+                                    <option value="2">Alan, Brown</option>
+                                    </select>
+                              
+                            </div>
+                        </li>
+                        <li class="col l3">
+                          <div class="input-field col s12">
+                            <select id="acc_type" name="acc_type">
+                              <option value="" disabled selected>Charges Description</option>
+                              <option value="1">Registration Fee</option>
+                              <option value="2">Summer Camp</option>
+                              <option value="3">Tuition Monthly</option>
+                            </select>                          
+                          </div>
+                          <!--<div class="input-field">
+                              <i class="material-icons prefix form_icon">list</i>
+                              <input type="text" id="acc_code" class="autocomplete">
+                              <label for="autocomplete-input">Account Code</label>
+                            </div>-->
+                        </li>
+                        <li class="col l3">
+                          <div class="input-field">
+                              <i class="material-icons prefix form_icon">attach_money</i>
+                              <input id="amount" name="amount" type="text" class="validate" placeholder="Amount">
+                              <label for="icon_prefix"></label>
+                          </div>
+                        </li>
+                      </ul>
+                      <a id="add_bill" class="right btn-floating btn-medium waves-effect waves-light"><i class="material-icons">add</i></a>
+                    </div>
+                    </div>
+                    </div>
+
+                    </form>  
+                    <div class="row"> 
+                    <div class="col l12">              
+                    <div class="button_prop">
+                    <form class="prop" action="#">
+                      <p class="col l3">
+                        <input class="with-gap" name="group1" type="radio" id="test3"  />
+                        <label for="test3">Single Invoice</label>
+                      </p>
+                      <p class="col l3">
+                        <input class="with-gap" name="group1" type="radio" id="test4" />
+                        <label for="test4">Multiple Invoice</label>
+                      </p>
+                      <p class="col l3">
+                        <input type="checkbox" id="test5" />
+                        <label for="test5">Full Amount</label><br>
+                      </p>
+                    </form> 
+                    </div>
+                    </div>  
+                    </div> 
+                    <div class="card-tabs">
+                    <ul class="tabs tabs-fixed-width col l3">
+                      <li class="tab"><a class="active" href="#test4">Recurrences</a></li>
+                    </ul>
+                  </div>
+                  <div class="card-content ">
+                    <div id="test4">
+                     
+                      <!--table for billing charges-->                     
+                      <div>
+                      <table id="table_container">
+                        <thead>
+                          <tr>
+                              <th>S.No</th>
+                              <th>Charge Date</th>
+                              <th>Due Date</th>
+                              <th>Amount</th>
+                              <th>Account Code</th>
+                              <th>Account Name</th>
+                              <th>School Year</th>
+                          </tr>
+                        </thead>  
+                        <tbody>
+                                                                                                
+                        </tbody>                     
+                      </table>                        
+                      </div>
+                    </div>
+                  </div>
+              </div>
+
+              
+
+              
+
+        </div>
+      </div>
+
+
+       <!--<div class="col l3 right">
+        <ul class="collapsible " data-collapsible="expandable">
+          <li>
+            <div class="collapsible-header"><i class="material-icons">list</i>Invoice Listing</div>
+            <div class="collapsible-body blockquote_card">
+       
+                 
+                  <table>
+                    <thead>
+                   <tr>
+                     <th>Student Name</th>
+                     <th>Invoice No</th>
+                     <th>Amount</th>
+                   </tr>
+                    <tbody>
+                       <tr>
+                    <td>Alan</td>
+                    <td>SI000001</td>
+                    <td>25</td>
+                  </tr>
+                    <tr>
+                    <td>Alvin</td>
+                    <td>SI000002</td>
+                    <td>1500</td>
+                  </tr>
+                  <tr>
+                    <td>Alvin</td>
+                    <td>SI000003</td>
+                    <td>800</td>
+                  </tr>
+                </tbody>
+                  </table>
+                
+      </div>
+    </li>
+  </ul>
+    </div>-->
+
+      <div  class="col l12 left" style="display: block;">
+        <ul class="collapsible" data-collapsible="expandable">
+          <li id="credits_main">
+            
+            <div class="collapsible-body">
+            <table>
+               <thead>
+                   <tr>
+                     <th>Student Name</th>
+                     <th>Reference Number</th>
+                     <th>Charge Date</th>
+                     <th>Memo</th>
+                     <th>Amount</th>
+                     <th>Account Code</th>
+                     <th>Cost Center</th>                                   
+                   </tr>
+               </thead>
+                  <tbody>
+                    <tr>
+                    <td>Alvin</td>
+                    <td>CC00000001</td>
+                    <td>11/06/17</td>
+                    <td>Staff Discount</td>
+                    <td>125.00</td>
+                    <td>30000</td>
+                    </tr>
+                  </tbody>                             
+              </table>
+            </div>
+            <div class="collapsible-header"><i class="material-icons">credit_card</i>Credits</div>
+          </li>
+          <li id="payments_main">
+            
+            <div class="collapsible-body">
+              <table>
+               <thead>
+                   <tr>
+                     <th>Type</th>
+                     <th>Reference Number</th>
+                     <th>Date</th>
+                     <th>Memo</th>
+                     <th>Amount</th>
+                     <th>UnAdj Amount</th>
+                     <th>Check No</th>  
+                     <th>Check Date</th>
+                     <th>Account code</th>                                 
+                   </tr>
+               </thead>
+                  <tbody>
+                    <tr>
+                    <td>Cash</td>
+                    <td>BR00000001</td>
+                    <td>11/08/17</td>
+                    <td>Check Payment</td>
+                    <td>200.00</td>
+                    <td>0</td>
+                    <td>15464</td>
+                    <td>11/08/2017</td>
+                    <td>5456400</td>
+                    </tr>
+                  </tbody>                             
+              </table>
+            </div>
+            <div class="collapsible-header"><i class="material-icons">credit_card</i>Payments</div>
+          </li>
+        </ul>
+      </div>   
+    
+
+     
+
+
+        <div class="fixed-action-btn  click-to-toggle">
+          
+    <a href="#" data-activates="slide-out-list" id="pin" class="btn-floating btn-large tooltipped red sidenav-trigger" data-position="left" data-tooltip="Invoice Listing">
+      <i class="material-icons">list</i>
+    </a>
+    <ul id="slide-out-list" class="side-nav">
+      <!--<li>
+        <form class="">
+        <div class="input-field col s12">
+            <select id="choice">
+              <option value="" disabled selected>Choose your option</option>
+              <option value="all">All</option>
+                <option value="serviceOne">Board-Certified Lactation Consultants</option>
+                <option value="serviceTwo">Breastfeeding Classes</option>
+                <option value="serviceThree">Breastfeeding-Friendly Environments</option>
+            </select>
+            <label></label>
+          </div>
+          </form>
+      </li>-->
+      <select id="choice">
+  <option value="all">All</option>
+  <option value="serviceOne">Board-Certified Lactation Consultants</option>
+  <option value="serviceTwo">Breastfeeding Classes</option>
+  <option value="serviceThree">Breastfeeding-Friendly Environments</option>
+</select>
+    <li>
+      <table id="table" class="highlight">
+                    <thead>
+                   <tr>
+                     <th>Student Name</th>
+                     <th>Invoice No</th>
+                     <th>Amount</th>
+                   </tr>
+                    <tbody>
+                       <tr  class="all serviceOne">
+                    <td>Alan</td>
+                    <td>SI000001</td>
+                    <td>25</td>
+                  </tr  class="all serviceTwo">
+                    <tr>
+                    <td>Alvin</td>
+                    <td>SI000002</td>
+                    <td>1500</td>
+                  </tr>
+                  <tr  class="all serviceThree">
+                    <td>Alvin</td>
+                    <td>SI000003</td>
+                    <td>800</td>
+                  </tr>
+                </tbody>
+                  </table>
+    </li>
+  </ul>
+  </div>
+   
+    
+
+
+    
+ </main>
+</body>
+<!--footer-->
+          <footer class="page-footer">
+            <!--floating buttons-->
+                  <ul class="button-list">
+                    <li><a class="btn-floating  blue "><i class="material-icons">attach_file</i></a></li>
+                    <li><a class="btn-floating  pink lighten-2"><i class="material-icons">print</i></a></li>
+                    <li><a class="btn-floating yellow darken-1"><i class="material-icons">mail_outline</i></a></li>
+                    <li><a class="btn-floating deep-purple lighten-2"><i class="material-icons">create</i></a></li>
+                    <li><a class="btn-floating lime accent-4"><i class="material-icons">monetization_on</i></a></li>
+                    <li><a class="btn-floating   blue-grey lighten-1 "><i class="material-icons">block</i></a></li>
+                    <li><a class="btn-floating  teal "><i class="material-icons">note_add</i></a></li>
+                    <li><a id="save" class="btn-floating green" onclick="SaveTable()"><i class="material-icons">save</i></a></li>
+                    <li><a id="clear" class="btn-floating orange" onclick="DeleteRows()"><i class="material-icons">clear</i></a></li>
+                    <li><a class="btn-floating red"><i class="material-icons">delete</i></a></li>                    
+                  </ul>                
+                  </div>
+          </footer>
+      <!--Import jQuery before materialize.js-->
+      <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+      <script type="text/javascript" src="js/materialize.min.js"></script>
+      <script type="text/javascript" src="js/main_JS.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.2.0/js/ion.rangeSlider.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.2.0/js/ion.rangeSlider.min.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.30.5/js/jquery.tablesorter.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.30.5/js/jquery.tablesorter.min.js"></script>
+      <script type="text/javascript">
+$(document).ready(function(){
+    // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
+    $('.modal').modal();
+  });
+        $("#range_03").ionRangeSlider({
+    type: "double",
+    grid: true,
+    min: 0,
+    max: 1000,
+    from: 200,
+    to: 800,
+    prefix: "$"
+});
+
+    $("#choice").change(function(){
+  $("#table tbody tr").hide();
+  $("#table tbody tr."+$(this).val()).show('fast');
+});
+
+//this JS calls the tablesorter plugin that we already use on our site
+$("#table").tablesorter( {sortList: [[0,0]]} );
+
+ $('.check').change(function(){
+      var data= $(this).val();
+     // alert(data);
+     if (data=="4") {
+      console.log("inside");
+       //$('.modal').modal();
+      $('#modal_add_family').modal('open');
+     }            
+    });
+      </script>
+  </body>
+</html>

@@ -1,0 +1,45 @@
+.info_items{
+	height: 50px;
+	margin-top: 0px;       /*billing*/
+	margin-bottom: 0px;
+}
+.info_items li{
+	float: left;    /*billing*/
+}
+#charges {
+	float: right; /*billing*/
+}
+.info h6{
+	cursor: pointer;
+	margin-top: 35px; /*billing*/
+	color: #333333;
+}
+.info_items h6{
+	padding-top: 15px;  /*billing*/
+}
+#vert_icon{
+	float: right;
+	margin-left: 20px; /*billing*/
+	cursor: pointer;
+}
+.bill_inputs .bill_ul li{
+	float: left;
+	margin-right: 20px; /*billing*/
+}
+#add_billing{
+	float: right;
+	margin-top: 30px; /*billing*/
+}
+.activator{
+	cursor: pointer;
+}
+.button_prop{
+	float: left; /*billing*/
+	width: 100%;
+}
+.button_prop .prop p{
+	float: left;
+	margin-top: 10px;
+	margin-bottom: 10px; /*billing*/
+	margin-right: 20px;
+}

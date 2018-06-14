@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!--Import Google Icon Font-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!--Import materialize.css-->
+  <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+  <link type="text/css" rel="stylesheet" href="css/style_5.css"  media="screen,projection"/>
+  
+  <link type="text/css" rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/dataTables.material.min.css"  media="screen,projection"/>
+  <!--Let browser know website is optimized for mobile-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <style type="text/css">
+  select{
+      /*display: block;
+      background-color: rgba(255,255,255,0.9);
+      width: 100%;
+      padding: 5px;
+      border: 1px solid #c1c1c1;
+      border-radius: 2px;
+      height: 2rem;
+      margin: 0px 9px;*/
+    }
+    label{
+      display: inline-flex;
+      color: #333;
+    }
+    .page-footer{
+     /* z-index: 99999;
+      position: unset !important;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-color: white;
+      padding-top: 5px;
+      padding-bottom: 5px;*/
+    }
+    .dataTables_length{
+      width: 50%!important;
+    }
+    .card-panel{
+      background-color: #f7f7f7;
+      margin: 0px;
+      color: #757575;
+      height: 87px;
+      padding: 0px;
+      z-index: 999
+    }
+    h6
+    {
+      padding-top: 5px;
+      padding-left: 14px;
+    }
+    .mdl-cell .mdl-cell--6-col{
+      width: 50%!important;
+    }
+  </style>
+</head>
+<body onLoad="buildHtmlTable()">
+  <!--pre loader-->
+     <!-- <div class="preloader-background">
+        <div id="loading"></div>
+      </div>-->
+      <!--side nav-->
+      <div class="row">
+       <div class="navbar-fixed">
+        <nav>
+          <div class="nav-wrapper">
+            <ul class="left">
+              <li><img src="images/finacs_logo_FA.jpg" alt="" class="circle responsive-img"></li>
+              <li><h5>FINACS</h5></li>
+              <li><h5 id="admin"></h5></li>
+            </ul>          
+            <ul class="right hide-on-med-and-down">
+              <li><i class="material-icons">search</i></li>
+              <li><a href="index_modules.html" style="padding: 0px;"><i class="material-icons">apps</i></a></li>
+              <li><i class="material-icons">notifications</i></li>
+              <li><i class="material-icons">settings</i></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </div> 
+
+     <ul  class="menu">
+                  <li id="a" class="menu-button home" >
+                    <a href="#!" class="tooltipped" data-position="right" data-delay="50" data-tooltip="Favorites" >
+                    <i class="material-icons">star</i>
+                    </a>
+                  </li>
+                  <li id="b" class="menu-button home"><a  href="#!"  class="tooltipped" data-position="right" data-delay="50" data-tooltip="Student Billing" ><i class="material-icons">folder_shared</i></a>
+                  </li>
+                  <li id="c" class="menu-button home"><a  href="#!"  class="tooltipped" data-position="right" data-delay="50" data-tooltip="Account Receivables" ><i class="material-icons">account_balance_wallet</i></a>
+                  </li>
+                  <li class="menu-button home"><a  href="#!"  class=" tooltipped" data-position="right" data-delay="50" data-tooltip="Purchase" ><i class="material-icons">shop</i> 
+                    </a>
+                  </li>
+                  <li class="menu-button home"><a  href="#!"  class="tooltipped" data-position="right" data-delay="50" data-tooltip="Account Payables" ><i class="material-icons">payment</i> </a>
+                  </li>
+                  <li class="menu-button home"><a  href="#!"  class="tooltipped" data-position="right" data-delay="50" data-tooltip="General Ledger" ><i class="material-icons">book</i> 
+                    </a>
+                  </li>
+                  <li class="menu-button home"><a  href="#!"  class="tooltipped" data-position="right" data-delay="50" data-tooltip="Fixed Assets" ><i class="material-icons">assignment</i></a>
+                  </li>
+                  <li class="menu-button home"><a  href="#!"  class="tooltipped" data-position="right" data-delay="50" data-tooltip="Budgeting" ><i class="material-icons">account_balance</i></a>
+                  </li>
+                  <li class="menu-button home"><a   href="#!" class="tooltipped" data-position="right" data-delay="50" data-tooltip="Inventory" ><i class="material-icons">list</i></a>
+                  </li>
+                  <li class="menu-button home"><a  href="#!"  class="tooltipped" data-position="right" data-delay="50" data-tooltip="Payroll" ><i class="material-icons">attach_money</i> 
+                    </a>
+                  </li>
+                  <li class="menu-button home"><a  href="#!"  class="tooltipped" data-position="right" data-delay="50" data-tooltip="Utilities" ><i class="material-icons">settings</i> 
+                    </a>
+                  </li>
+              </ul>
+              <ul  class="menu-bar"  >
+                  <!-- <li><a href="#!" class="menu-button">Transactions</a></li>
+                  <li><a href="#!">Reports</a></li> -->                    
+                </ul>
+                    
+         <main>           
+    <!--Bread Crumb-->
+    <div class="row">
+      <div class="col s12 m12 l12">
+       <div class="row">
+        <div class="col l6" style="color: grey;">
+          <p class="left breadcrumb">Student Billing</p>
+          <i class="material-icons left" style="margin-top: 5px;margin-right: 0px;">keyboard_arrow_right</i>
+          <p class="left breadcrumb">Landing Page</p>
+        </div>
+      </div>
+
+      <!--Billing code tabs-->
+      <div class="row">
+        <div class="col l6">
+          <ul class="collection" style="padding-bottom: 10px;">
+            <li class="collection-item active"><i class="material-icons left">link</i>Priority Shortcuts</li>
+            <li class="collection-item">
+              <ul class="row ">
+                <div class="col l3 center">
+                  <li><a href="Create_invoice.html" class="btn-floating btn-large blue "><i class="material-icons">school</i></a></li>
+                  <p>Create Student Invoice</p>
+                </div>
+                <div class="col l3 m12 s6 center">
+                  <li><a href="#" class="btn-floating btn-large pink lighten-2"><i class="material-icons">business_center</i></a></li>
+                  <p>Create Staff Invoice</p>
+                </div>
+                <div class="col l3 center">
+                  <li><a href="index_batch.html" class="btn-floating btn-large yellow darken-1"><i class="material-icons">view_list</i></a></li>
+                  <p>Batch Entry</p>
+                </div>
+                <div class="col l3 center">
+                  <li><a href="index_batch.html" class="btn-floating btn-large deep-purple lighten-2"><i class="material-icons">list</i></a></li>
+                  <p>Batch Management</p>
+                </div>
+              </ul>
+
+              <ul class="row ">
+                <div class="col l3 center">
+                  <li><a href="#" class="btn-floating btn-large indigo  "><i class="material-icons">contact_mail</i></a></li>
+                  <p>Dispatch Statements</p>
+                </div>
+                <div class="col l3 center">
+                  <li><a href="Create_payments.html" class="btn-floating btn-large light-green"><i class="material-icons">credit_card</i></a></li>
+                  <p>Receive Payments</p>
+                </div>
+                <div class="col l3 center">
+                  <li><a href="Create_credits.html" class="btn-floating btn-large orange"><i class="material-icons">speaker_notes</i></a></li>
+                  <p>Enter Credits</p>
+                </div>
+                <div class="col l3 center">
+                  <li><a href="#" class="btn-floating btn-large cyan darken-1"><i class="material-icons">list</i></a></li>
+                  <p>Transaction Summary List</p>
+                </div>
+              </ul>
+            </li>
+          </ul>
+        </div>
+
+        <div class="col l6">
+          <ul class="collection" style="padding-bottom: 10px;">
+            <li class="collection-item active"><i class="material-icons left">link</i>To Do Activity</li>
+            <li class="collection-item avatar">
+              <i class="material-icons circle ">description</i>
+              <span class="title">Students Admission Fee</span>
+              <p>Billing Charges <br>
+               06/06/2018
+             </p>
+             <a href="#!" class="secondary-content">
+              <p>
+                <input type="checkbox" class="filled-in" id="filled-in-box-1"/>
+                <label for="filled-in-box-1"> </label>
+              </p>
+            </a>
+          </li>
+          <li class="collection-item avatar">
+            <i class="material-icons circle">account_balance_wallet</i>
+            <span class="title">Create Credit vouchers</span>
+            <p>Enter Credits<br>
+             06/06/2018
+           </p>
+           <a href="#!" class="secondary-content">
+            <p>
+              <input type="checkbox" class="filled-in" id="filled-in-box-2"/>
+              <label for="filled-in-box-2"> </label>
+            </p>
+          </a>
+        </li>
+        <li class="collection-item avatar">
+          <i class="material-icons circle ">list_alt</i>
+          <span class="title">Create Batch with Tution Fee</span>
+          <p>Batch Entry<br>
+           05/06/2018
+         </p>
+         <a href="#!" class="secondary-content">
+          <p>
+            <input type="checkbox" class="filled-in" id="filled-in-box-3"/>
+            <label for="filled-in-box-3"></label>
+          </p>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col l6">
+    <ul class="collection" style="padding-bottom: 10px;">
+      <li class="collection-item active"><i class="material-icons left">link</i>Master Screens</li>
+      <li class="collection-item">
+        <ul class="row ">
+          <div class="col l3 center">
+            <li><a href="Billing_Master.html" class="btn-floating btn-large amber accent-4 "><i class="material-icons">receipt</i></a></li>
+            <p>Billing Services</p>
+          </div>
+          <div class="col l3 center">
+            <li><a href="Create_View_Student_Details.html" class="btn-floating btn-large red lighten-2"><i class="material-icons">person</i></a></li>
+            <p>Students</p>
+          </div>
+          <div class="col l3 center">
+            <li><a href="Create_View_Family_Sponsor_Details.html" class="btn-floating btn-large light-blue darken-3"><i class="material-icons">business_center</i></a></li>
+            <p>Family</p>
+          </div>
+          <div class="col l3 center">
+            <li><a href="Family_Sponsor_Central_2.html" class="btn-floating btn-large teal lighten-1"><i class="material-icons">people</i></a></li>
+            <p>Family/Sponsor Central</p>
+          </div>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <div class="col l6">
+    <ul class="collapsible" data-collapsible="accordion">
+      <li>
+        <div class="collapsible-header">
+          <i class="material-icons">school</i>
+          Students
+          <span class="badge">120</span></div>
+          <div class="collapsible-body">
+            <div class="row">
+             <div class="col s12">
+               <div class="row">
+                 <div class="input-field col s12">
+                   <i class="material-icons prefix">textsms</i>
+                   <input type="text" id="autocomplete-input" class="autocomplete">
+                   <label for="autocomplete-input">Select a student</label>
+                 </div>
+               </div>
+             </div>
+           </div>
+           <div class="row">
+             <a class="col l2 left" href="#" style="color: #0b5a96; font-size: 13px;"><i class="material-icons left" style="margin-right: 2px;">add</i>Invoice</a>
+             <a class="col l2 left" href="#" style="color: #0b5a96; font-size: 13px;"><i class="material-icons left" style="margin-right: 2px;">add</i>Credit</a>
+             <a class="col l2 left" href="#" style="color: #0b5a96; font-size: 13px;"><i class="material-icons left" style="margin-right: 2px;">add</i>Payment</a>
+             <a class="col l2 left" href="#" style="color: #0b5a96; font-size: 13px;"><i class="material-icons left" style="margin-right: 2px;">add</i>Summary</a>
+           </div>
+         </div>
+       </li>
+       <li>
+        <div class="collapsible-header">
+          <i class="material-icons">people</i>
+          Families
+          <span class="badge">57</span></div>
+          <div class="collapsible-body">
+            <div class="row">
+             <div class="col s12">
+               <div class="row">
+                 <div class="input-field col s12">
+                   <i class="material-icons prefix">textsms</i>
+                   <input type="text" id="autocomplete-input-family" class="autocomplete">
+                   <label for="autocomplete-input-family">Select a Family</label>
+                 </div>
+               </div>
+             </div>
+           </div>
+           <div class="row">
+             <a class="col l2 left" href="#" style="color: #0b5a96; font-size: 13px;"><i class="material-icons left" style="margin-right: 2px;">add</i>Invoice</a>
+             <a class="col l2 left" href="#" style="color: #0b5a96; font-size: 13px;"><i class="material-icons left" style="margin-right: 2px;">add</i>Credit</a>
+             <a class="col l2 left" href="#" style="color: #0b5a96; font-size: 13px;"><i class="material-icons left" style="margin-right: 2px;">add</i>Payment</a>
+             <a class="col l2 left" href="#" style="color: #0b5a96; font-size: 13px;"><i class="material-icons left" style="margin-right: 2px;">add</i>Refund</a>
+             <a class="col l2 left" href="#" style="color: #0b5a96; font-size: 13px;"><i class="material-icons left" style="margin-right: 2px;">add</i>Summary</a>
+           </div>
+         </div>
+       </li>
+       <li>
+        <div class="collapsible-header">
+          <i class="material-icons">description</i>
+          Invoice
+          <span class="new badge">3</span><span class="badge" style="margin-left: 0px;">72</span></div>
+          <div class="collapsible-body">
+            <table class="highlight">
+              <thead>
+               <tr>
+                <th>Invoice No</th>
+                <th>Student Name</th>
+                <th>Amount</th>
+              </tr>
+            </thead>
+              <tbody>
+               <tr>
+                <td>SI000001</td>    
+                <td>Alan</td>
+
+                <td>25</td>
+              </tr>
+              <tr>
+                <td>SI000002</td>
+                <td>Alvin</td>
+
+                <td>1500</td>
+              </tr>
+              <tr>
+                <td>SI000003</td>
+                <td>Alvin</td>
+                <td>800</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </li>
+      <li>
+        <div class="collapsible-header">
+          <i class="material-icons">list_alt</i>
+          Batch
+          <span class="badge">5</span></div>
+          <div class="collapsible-body">
+            <table class="highlight">
+              <thead>
+                <th>Code</th>
+                <th>Description</th>
+                <th>Active/Inactive</th>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>2018010001</td>
+                  <td>Batch run on 01-01-2018</td>
+                  <td>Yes</td>
+                </tr>
+                <tr>
+                  <td>2018010002</td>
+                  <td>Batch run on 02-01-2018</td>
+                  <td>Yes</td>
+                </tr>
+                <tr>
+                  <td>2018010003</td>
+                  <td>Batch run on 03-01-2018</td>
+                  <td>No</td>
+                </tr>
+                <tr>
+                  <td>2018010004</td>
+                  <td>Batch run on 04-01-2018</td>
+                  <td>Yes</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+</div>
+</body>
+</main>
+<!--footer-->
+<footer class="page-footer">
+</footer>
+<!--Import jQuery before materialize.js-->
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="js/materialize.min.js"></script>
+<script type="text/javascript" src="js/main_JS.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/dataTables.material.min.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#example').DataTable( {
+      columnDefs: [
+      {
+        targets: [ 0, 1, 2 ],
+        className: 'mdl-data-table__cell--non-numeric'
+      }
+      ]
+    } );
+    $('#example_1').DataTable( {
+      columnDefs: [
+      {
+        targets: [ 0, 1, 2 ],
+        className: 'mdl-data-table__cell--non-numeric'
+      }
+      ]
+    } );
+    $('#example_2').DataTable( {
+      columnDefs: [
+      {
+        targets: [ 0, 1, 2 ],
+        className: 'mdl-data-table__cell--non-numeric'
+      }
+      ]
+    } );
+
+    $('input.autocomplete').autocomplete({
+      data: {
+        "Alvin": null,
+        "Alan": null,
+        "Harry": 'https://placehold.it/250x250'
+      },
+    limit: 20, // The max amount of results that can be shown at once. Default: Infinity.
+    onAutocomplete: function(val) {
+      // Callback function when value is autcompleted.
+    },
+    minLength: 1, // The minimum length of the input for the autocomplete to start. Default: 1.
+  });
+    $('#autocomplete-input-family').autocomplete({
+      data: {
+        "Mr.Mrs.Brown": null,
+        "Mr.Mrs.Paige": null,
+        "Mr.Mrs.McGowan": 'https://placehold.it/250x250'
+      },
+    limit: 20, // The max amount of results that can be shown at once. Default: Infinity.
+    onAutocomplete: function(val) {
+      // Callback function when value is autcompleted.
+    },
+    minLength: 1, // The minimum length of the input for the autocomplete to start. Default: 1.
+  });
+  } );
+</script>
+</body>
+</html>

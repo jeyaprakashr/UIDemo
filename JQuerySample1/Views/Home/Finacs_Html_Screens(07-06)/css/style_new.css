@@ -1,0 +1,86 @@
+
+#dehaze{
+	float: left;
+}
+.form_icon {
+	color: #333333;
+}
+.card-panel{
+	
+	margin: 0px;
+	color: white;
+	height:60px;
+	padding-top: 0px;
+	
+}
+.row .card-panel  i{
+	padding-top: 15px;
+
+}
+.select-wrapper span.caret{
+	color: white;
+	border-bottom: none;
+}
+.select-wrapper input.select-dropdown{
+	border:none;
+}
+.search_btn{
+	margin-top: 20px;
+}
+.info li{
+	float: left;
+}
+.info h6{
+	cursor: pointer;
+	margin-top: 35px;
+	color: #333333;
+}
+.info .tile_block{
+	float: right;
+
+}
+#vert_icon{
+	float: right;
+	margin-top: 30px;
+	margin-left: 20px;
+	cursor: pointer;
+}
+.tile_block li{
+	
+}
+#charges{
+
+    border-left-color:  #3399cc;
+	
+}
+#pay{
+	 border-left-color: #99cc66;
+}
+#credits{
+	 border-left-color: #ff9933;
+}
+blockquote{
+	border-left-width: 4px;
+    border-left-style: solid;
+	float: right;
+	margin-right: 20px;
+	margin-top: 0px;
+	color: #333333;
+}
+}
+
+.activator{
+	cursor: pointer;
+}
+.button-list li{
+	margin-left: 10px;
+	float: left;
+	
+}
+.page-footer{
+	
+  	right: 0;
+  	bottom: 0;
+  	left: 0;
+	padding-top: 0px;
+}

@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+      <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+      <link type="text/css" rel="stylesheet" href="css/style_5.css"  media="screen,projection"/>
+      <link type="text/css" rel="stylesheet" href="css/credits_style.css"  media="screen,projection"/>
+      <link type="text/css" rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/dataTables.material.min.css"  media="screen,projection"/>
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <style type="text/css">
+      /*select{
+      display: block;
+      background-color: rgba(255,255,255,0.9);
+      width: 100%;
+      padding: 5px;
+      border: 1px solid #c1c1c1;
+      border-radius: 2px;
+      height: 2rem;
+      margin: 0px 9px;
+      }*/
+      label{
+        display: inline-flex;
+        color: #333;
+      }
+      .page-footer{
+      z-index: 99999;
+      position: unset !important;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-color: white;
+      padding-top: 5px;
+      padding-bottom: 5px;
+    }
+    .dataTables_length{
+      width: 50%!important;
+    }
+    .card-panel{
+    background-color: #f7f7f7;
+    margin: 0px;
+    color: #757575;
+    height: 87px;
+    padding: 0px;
+    z-index: 999
+}
+h6
+{
+    padding-top: 5px;
+    padding-left: 14px;
+}
+.mdl-cell .mdl-cell--6-col{
+  width: 50%!important;
+}
+      </style>
+    </head>
+    <body onLoad="buildHtmlTable()">
+      <!--pre loader-->
+     <!-- <div class="preloader-background">
+        <div id="loading"></div>
+      </div>-->
+    	<!--side nav-->
+      <div class="row">
+       <div class="navbar-fixed">
+        <nav>
+          <div class="nav-wrapper">
+            <ul class="left">
+              <li><img src="images/finacs_logo_FA.jpg" alt="" class="circle responsive-img"></li>
+              <li><h5>FINACS</h5></li>
+              <li><h5 id="admin"></h5></li>
+            </ul>          
+            <ul class="right hide-on-med-and-down">
+              <li><i class="material-icons">search</i></li>
+              <li><a href="index_modules.html" style="padding: 0px;"><i class="material-icons">apps</i></a></li>
+              <li><i class="material-icons">notifications</i></li>
+              <li><i class="material-icons">settings</i></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </div>            
+        <ul  class="menu">
+                  <li id="a" class="menu-button home" >
+                    <a href="#!"  class="tooltipped" data-position="right" data-delay="50" data-tooltip="Favorites" >
+                    <i class="material-icons">star</i>
+                    </a>
+                  </li>
+                  <li id="b" class="menu-button home"><a  href="#!"  class="tooltipped" data-position="right" data-delay="50" data-tooltip="Student Billing" ><i class="material-icons">folder_shared</i> <!--Student Billing--></a>
+
+                  </li>
+                  <li id="c" class="menu-button home"><a  href="#!"  class="tooltipped" data-position="right" data-delay="50" data-tooltip="Account Receivables" ><i class="material-icons">account_balance_wallet</i><!--<img src="images/acc_rec_icon.png">--> <!--Account Receivables--></a>
+
+                  </li>
+                  <li class="menu-button home"><a  href="#!"  class=" tooltipped" data-position="right" data-delay="50" data-tooltip="Purchase" ><i class="material-icons">shop</i> <!--Purchase--></a>
+
+                  </li>
+                  <li class="menu-button home"><a  href="#!"  class="tooltipped" data-position="right" data-delay="50" data-tooltip="Account Payables" ><i class="material-icons">payment</i> <!--Account Payables--></a>
+
+                  </li>
+                  <li class="menu-button home"><a  href="#!"  class="tooltipped" data-position="right" data-delay="50" data-tooltip="General Ledger" ><i class="material-icons">book</i> <!--General Ledger--></a>
+
+                  </li>
+                  <li class="menu-button home"><a  href="#!"  class="tooltipped" data-position="right" data-delay="50" data-tooltip="Fixed Assets" ><i class="material-icons">assignment</i> <!--Fixed Assets--></a>
+
+                  </li>
+                  <li class="menu-button home"><a  href="#!"  class="tooltipped" data-position="right" data-delay="50" data-tooltip="Budgeting" ><i class="material-icons">account_balance</i><!--Budgeting--></a>
+
+                  </li>
+                  <li class="menu-button home"><a   href="#!" class="tooltipped" data-position="right" data-delay="50" data-tooltip="Inventory" ><i class="material-icons">list</i> <!--Inventory--></a>
+
+                  </li>
+                  <li class="menu-button home"><a  href="#!"  class="tooltipped" data-position="right" data-delay="50" data-tooltip="Payroll" ><i class="material-icons">attach_money</i> <!--Payroll--></a>
+
+                  </li>
+                  <li class="menu-button home"><a  href="#!"  class="tooltipped" data-position="right" data-delay="50" data-tooltip="Utilities" ><i class="material-icons">settings</i> <!--Utilities--></a>
+                  </li>
+                </ul>
+                <ul  class="menu-bar"  >
+                  <!-- <li><a href="#!" class="menu-button">Transactions</a></li>
+                  <li><a href="#!">Reports</a></li> -->                    
+                </ul>
+        <main>
+          <!--search family-->
+             <div class="row">
+                <div class="col s12 m12 l12">
+                  <div class="row">
+                    <div class="col l6" style="color: grey;">
+                    <p class="left breadcrumb">Student Billing</p>
+                    <i class="material-icons left " style="margin-top:5px; margin-right: 0px;">keyboard_arrow_right</i>
+                    <p class="breadcrumb" style="display: block;">View Family & Transactions</p>
+                    </div>
+                  </div>
+                    <ul class="collapsible popout" data-collapsible="accordion"">
+                      <li>
+                        <div class="collapsible-header"><i class="material-icons">search</i><b>Search</b></div>
+                        <div class="collapsible-body">
+                          <div class="row">
+                            <div class="col l12">
+                            <ul>
+                              <li>
+                                <div class="col l4 input-field">
+                                  <i class="material-icons prefix form_icon">people</i>
+                                  <input  type="text" id="fcode" class="dropdown-button" data-activates="dropdown2">
+                                  <label for="fcode">Family Code</label> 
+                               </div>
+                                       <div id="dropdown2" class="dropdown-content mega"> 
+                                       <table id="tableID" class="highlight black-text">
+                                       <thead>
+                                       <tr>
+                                        <th>Family Code</th>
+                                        <th>Family Name</th>
+                                        <th>Student</th>
+                                        <th>Grade</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                        <td>Br001</td>
+                                        <td>Mr.Mrs.Brown</td>
+                                        <td>Alvin</td>
+                                        <td>5</td>
+                                        </tr>
+                                        <tr>
+                                        <td>Br001</td>
+                                        <td>Mr.Mrs.Brown</td>
+                                        <td>Alan</td>
+                                        <td>3</td>
+                                        </tr>
+                                        <tr>
+                                        <td>Dn001</td>
+                                        <td>Mr.Mrs.Dennis</td>
+                                        <td>Jonathan</td>
+                                        <td>2</td>
+                                        </tr>
+                                        <tr>
+                                        <td>Ht001</td>
+                                        <td>Mr.Mrs.Heather</td>
+                                        <td>Adam</td>
+                                        <td>2</td>
+                                        </tr>
+                                        </tbody>
+                                        </table>
+                                        </div>
+                              </li>
+                              <li>
+                                <div class="col l4 input-field">
+                                  <i class="material-icons prefix form_icon">chrome_reader_mode</i>
+                                  <input  type="text" id="fcode" class="validate" >
+                                  <label for="fcode">Family Name</label> 
+                               </div>
+                              </li>
+                              <li>
+                                <a class="btn-floating modal-trigger tooltipped " href="#modal1" data-position="down" data-delay="50" data-tooltip="Filter Fields"><i class="material-icons">filter_list</i></a>
+                                <span style="padding-left: 25px;">
+                                <a class="waves-effect waves-light btn " href="#add_billing_charges"><i class="material-icons left">search</i>search</a>
+                                </span>
+                              </li>
+                                 <!-- Modal Structure -->
+                              <div id="modal1" class="modal modal-fixed-footer" style="width: 50em;">
+                              <div class="modal-content">
+                              <h4>Search/Display Fields</h4>
+                                  <p>Select the database fiels for search and display</p><br>
+                                  <div class="row">
+                                    <div class="col l6">
+                                      <div class="input-field col s12">
+                                      <select multiple>
+                                        <option value="" disabled selected>Select Search Fields</option>
+                                        <option value="1">Family Code</option>
+                                        <option value="2">Family Name</option>
+                                        <option value="3">Address 1</option>
+                                        <option value="4">Address 2</option>
+                                        <option value="5">City</option>
+                                        <option value="6">State Code</option>
+                                        <option value="7">Zip Code</option>
+                                      </select>
+                                      <label></label>
+                                      </div>
+                                    </div>
+                                  <div class="col l6">
+                                      <div class="input-field col s12">
+                                      <select multiple>
+                                        <option value="" disabled selected>Select Display Fields</option>
+                                        <option value="1">Family Code</option>
+                                        <option value="2">Family Name</option>
+                                        <option value="3">Address 1</option>
+                                        <option value="4">Address 2</option>
+                                        <option value="5">City</option>
+                                        <option value="6">State Code</option>
+                                        <option value="7">Zip Code</option>
+                                      </select>
+                                      <label></label>
+                                  </div>
+                                  </div>
+                                </div>
+                              </div>
+                            <div class="modal-footer">
+                              <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Accept</a>
+                              <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Decline</a>
+                            </div>
+                         </div>
+                              </ul>
+                          </div>
+                          </div>
+                              <!--<li>
+                                <div class="input-field col l3">
+                                  <i class="material-icons prefix form_icon">event</i>
+                                  <input id="icon_prefix" type="text" class="datepicker">
+                                  <label for="icon_prefix">To</label>
+                                </div>
+                              </li>
+                             <li>
+                                <div class="center-align ">
+                                  <a class="waves-effect waves-light btn-floating btn-medium search_btn"><i class="material-icons">search</i></a>
+                                </div>
+                              </li>-->
+                          <div class="row"  id="Charge_Due_Date_template">
+                            <div class="col l6">
+                            <div class="card-panel">
+                            <ul>
+                              <li>
+                                <h6>Charge Date</h6>
+                              </li>
+                              <li class="col l6">
+                                <div class="input-field">
+                                  <i class="material-icons prefix form_icon">event</i>
+                                  <input id="icon_prefix" type="text" class="datepicker">
+                                  <label for="icon_prefix">From</label>
+                                </div>
+                              </li>
+                              <li class="col l6">
+                                <div class="input-field">
+                                  <i class="material-icons prefix form_icon">event</i>
+                                  <input id="icon_prefix" type="text" class="datepicker">
+                                  <label for="icon_prefix">To</label>
+                                </div>
+                              </li>
+                            </ul>
+                            </div>
+                          </div>
+                          <div class="col l6">
+                            <div class="card-panel">
+                            <ul>
+                               <li>
+                                <h6>Due Date</h6>
+                              </li>
+                              <li class="col l6">
+                                <div class="input-field">
+                                  <i class="material-icons prefix form_icon">event</i>
+                                  <input id="icon_prefix" type="text" class="datepicker">
+                                  <label for="icon_prefix">From</label>
+                                </div>
+                              </li>
+                              <li class="col l6">
+                                <div class="input-field">
+                                  <i class="material-icons prefix form_icon">event</i>
+                                  <input id="icon_prefix" type="text" class="datepicker">
+                                  <label for="icon_prefix">To</label>
+                                </div>
+                              </li>
+                             <!--<li>
+                                <div class="center-align ">
+                                  <a class="waves-effect waves-light btn-floating btn-medium search_btn"><i class="material-icons">search</i></a>
+                                </div>
+                              </li>-->
+                            </ul>
+                          </div>
+                          </div>
+                          </div>
+                          
+                          <div class="row" id="transaction_date_template" style="display: none;">
+                            <div class="col l6">
+                            <div class="card-panel">
+                            <ul>
+                              <li>
+                                <h6>Transaction Date</h6>
+                              </li>
+                              <li class="col l6">
+                                <div class="input-field">
+                                  <i class="material-icons prefix form_icon">event</i>
+                                  <input id="icon_prefix" type="text" class="datepicker">
+                                  <label for="icon_prefix">From</label>
+                                </div>
+                              </li>
+                              <li class="col l6">
+                                <div class="input-field">
+                                  <i class="material-icons prefix form_icon">event</i>
+                                  <input id="icon_prefix" type="text" class="datepicker">
+                                  <label for="icon_prefix">To</label>
+                                </div>
+                              </li>
+                            </ul>
+                            </div>
+                          </div>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                </div>
+            </div>
+    <!--end of search-->
+    <!-- block quote cards-->
+    
+    <div class="row">
+      <div class="col l12 left">
+        <div class="card" id="credits_div" >
+          <div class="card-content" id="masterdiv">
+                    <!--<ul class="info_items"> 
+                        <li class="form_icon activator"><i class="material-icons medium">account_circle</i></li> 
+                        <li class="card-title">Mr.Mrs.Brown</li>
+                        <li class="right activator" id="vert_icon"><i class=" material-icons activator">keyboard_arrow_up</i></li>                  
+                        <li class="right"><blockquote id="due">Balance Due<br>$1325.00</blockquote></li>
+                        <li class="right"><blockquote id="charges">Total Charges<br>$1500.00</blockquote></li>
+                        <li class="right"><blockquote id="pay">Total Payments<br>$50.00</blockquote></li>
+                        <li class="right"><blockquote id="credits">Total Credits<br>$125.00</blockquote></li>                   
+                    </ul>-->
+                    <div class="card-tabs">
+                    <ul class="tabs tabs-fixed-width">
+                      <li id="invoice_listing" class="tab"><a class="active" href="#test4">Invoice Listing</a></li>
+                      <li id="credits_listing" class="tab"><a href="#test5">Credits Listing</a></li>
+                      <li id="payments_listing" class="tab"><a href="#test6">Payments Listing</a></li>
+                    </ul>
+                  </div>
+                  <div class="card-content grey lighten-4">
+                    <div id="test4">   
+                      <!--table for Invoice Listing-->
+                      <table id="example" class="mdl-data-table">
+                          <thead>
+                          <tr>
+                              <th>Student Name</th>
+                              <th>Invoice No</th>
+                              <th>Charge Date</th>
+                              <th>Due Date</th>
+                              <th>Description</th>
+                              <th>Amount</th>
+                              <th>Paid Amount</th>
+                              <th>Credit Amount</th>
+                              <th>Balance</th>                           
+                          </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>Alan</td>
+                              <td>SI000001</td>
+                              <td>11/03/2017</td>
+                              <td>11/03/2017</td>
+                              <td>Late Fee</td>
+                              <td>25</td>
+                              <td>25</td>
+                              <td>0.00</td>
+                              <td>0.00</td>                                 
+                          </tr>
+                            <tr>
+                              <td>Alvin</td>
+                              <td>SI000002</td>
+                              <td>11/03/2017</td>
+                              <td>11/03/2017</td>
+                              <td>Registration Fee</td>
+                              <td>1500</td>
+                              <td>725</td>
+                              <td>50</td>
+                              <td>725</td>                                 
+                          </tr>
+                          <tr>
+                              <td>Alvin</td>
+                              <td>SI000003</td>
+                              <td>12/01/2017</td>
+                              <td>12/01/2017</td>
+                              <td>Tution Monthly</td>
+                              <td>800</td>
+                              <td>800</td>
+                              <td>0.00</td>
+                              <td>0.00</td>                                  
+                          </tr>
+                          </tbody>
+                      </table>                        
+                        <!--<a href="#" class="waves-effect waves-light btn-floating btn-medium " >
+                        <i class="material-icons right">add</i></a> -->                     
+                    </div>
+                    <div id="test5">
+                        <!--table for credits Listing-->
+                      <table id="example_1" class="mdl-data-table">
+                        <thead>
+                          <tr>
+                              <th>Student Name</th>
+                              <th>Ref No</th>
+                              <th>Date</th>
+                              <th>Memo</th>
+                              <th>Amount</th>
+                          </tr>
+                        </thead>
+                          <tbody>
+                            <tr>
+                              <td>Alvin</td>
+                              <td>CC000188</td>
+                              <td>11/06/2017</td>
+                              <td>Staff Discount</td>
+                              <td>125</td>                           
+                          </tr>
+                          <tr>
+                              <td>Alvin</td>
+                              <td>CC000188</td>
+                              <td>11/06/2017</td>
+                              <td>SCH-G1</td>
+                              <td>600</td>
+                          </tr>
+                          </tbody>
+                      </table>
+                        <!--<a href="#" class="waves-effect waves-light btn-floating btn-medium">
+                        <i class="material-icons right">add</i></a>-->
+                      </div>
+                    <div id="test6">
+                      <!--table for Receive Payments-->
+                      <table id="example_2" class="mdl-data-table">
+                        <thead>
+                          <tr>
+                              <th>Receipt Type</th>
+                              <th>Ref No</th>
+                              <th>Date</th>
+                              <th>Memo</th>
+                              <th>Amount</th>
+                              <th>UnAdj Amount</th>
+                              <th>Check Date</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                              <td>Check</td>
+                              <td>BR1700002</td>
+                              <td>11/06/2017</td>
+                              <td>500</td>
+                              <td>1500</td>
+                              <td>450</td>
+                              <td>11/03/2017</td>                         
+                          </tr>
+                        </tbody>
+                      </table>
+                        <!--<a href="#" class=" waves-effect waves-light btn-floating btn-medium">
+                        <i class="material-icons right">add</i></a>-->
+                    </div>
+                  </div>
+            </div>
+        </div>
+      </div>
+
+
+      <!-- <div class="col l3 right">
+        <div class="card">
+                <div class="card-content blockquote_card">
+                  <div class="row">
+                  <ul class="tile">
+                    <li><blockquote id="amber">Charges Year To Date<br>$1500.00</blockquote></li>
+                    <li><blockquote id="light-green">Credits Year To Date<br>$725.00</blockquote></li>
+                  </ul>
+                  </div>
+                  <div class="row">
+                  <ul class="tile">
+                    <li><blockquote id="cyan">Payments Year To Date<br>$50.00</blockquote></li>
+                    <li><blockquote id="pink">Current Amount Due<br>$0.00</blockquote></li>
+                  </ul>
+                  </div>
+                  <div class="row">
+                  <ul class="tile">
+                    <li><blockquote id="purple">Future Charges<br>$0.00</blockquote></li>
+                    <li><blockquote id="yellow">Future Credits<br>$0.00</blockquote></li>
+                  </ul>
+                  </div>
+                  <div class="row">
+                  <ul class="tile">
+                    <li><blockquote id="teal">Unapplied Payments/Credits<br>$450.00</blockquote></li>
+                    <li><blockquote id="orange">Past Due<br>$725.00</blockquote></li>
+                  </ul>
+                  </div>
+                </div>
+          </div>
+      </div>-->
+    
+
+      <!--<div class="col l9 left">
+        <div class="card">
+          <div class="card-content">
+          	<div class="card-title">Credits</div>
+            <table>
+               <thead>
+                   <tr>
+                     <th>Student Name</th>
+                     <th>Reference Number</th>
+                     <th>Charge Date</th>
+                     <th>Memo</th>
+                     <th>Amount</th>
+                     <th>Account Code</th>
+                     <th>Cost Center</th>                                   
+                   </tr>
+               </thead>
+                  <tbody>
+                    <tr>
+                    <td>Alvin</td>
+                    <td>CC00000001</td>
+                    <td>11/06/17</td>
+                    <td>Staff Discount</td>
+                    <td>125.00</td>
+                    <td>30000</td>
+                    </tr>
+                  </tbody>                             
+              </table>
+          </div>
+        </div>
+      </div> -->  
+
+
+    </div>
+
+     
+
+<div class="row">
+        
+    </div>
+
+
+    <!--<div class="row">
+      <div class="col l9">
+        <div class="card">
+          <div class="card-content">
+          	<div class="card-title">Payments</div>
+            <table>
+               <thead>
+                   <tr>
+                     <th>Type</th>
+                     <th>Reference Number</th>
+                     <th>Date</th>
+                     <th>Memo</th>
+                     <th>Amount</th>
+                     <th>UnAdj Amount</th>
+                     <th>Check No</th>  
+                     <th>Check Date</th>
+                     <th>Account code</th>                                 
+                   </tr>
+               </thead>
+                  <tbody>
+                    <tr>
+                    <td>Cash</td>
+                    <td>BR00000001</td>
+                    <td>11/08/17</td>
+                    <td>Check Payment</td>
+                    <td>200.00</td>
+                    <td>0</td>
+                    <td>15464</td>
+                    <td>11/08/2017</td>
+                    <td>5456400</td>
+                    </tr>
+                  </tbody>                             
+              </table>
+          </div>
+        </div>
+      </div>     
+    </div>-->
+
+
+  
+
+          </main>
+          </body>
+<!--footer-->
+          <footer class="page-footer">
+            <!--floating buttons-->
+                  <ul class="button-list">
+                    <li><a class="btn-floating  blue "><i class="material-icons">attach_file</i></a></li>
+                    <li><a class="btn-floating  pink lighten-2"><i class="material-icons">print</i></a></li>
+                    <li><a class="btn-floating yellow darken-1"><i class="material-icons">mail_outline</i></a></li>
+                    <li><a class="btn-floating deep-purple lighten-2"><i class="material-icons">create</i></a></li>
+                    <li><a class="btn-floating lime accent-4"><i class="material-icons">monetization_on</i></a></li>
+                    <li><a class="btn-floating   blue-grey lighten-1 "><i class="material-icons">block</i></a></li>
+                    <li><a class="btn-floating  teal "><i class="material-icons">note_add</i></a></li>
+                    <li><a id="save" class="btn-floating green" onclick="SaveTable()"><i class="material-icons">save</i></a></li>
+                    <li><a id="clear" class="btn-floating orange" onclick="DeleteRows()"><i class="material-icons">clear</i></a></li>
+                    <li><a class="btn-floating red"><i class="material-icons">delete</i></a></li>                    
+                  </ul>                
+                  </div>
+          </footer>
+      <!--Import jQuery before materialize.js-->
+      <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+      <script type="text/javascript" src="js/materialize.min.js"></script>
+      <script type="text/javascript" src="js/main_JS.js"></script>
+       <script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+      <script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/dataTables.material.min.js"></script>
+      <script type="text/javascript">
+        $(document).ready(function() {
+    $('#example').DataTable( {
+        columnDefs: [
+            {
+                targets: [ 0, 1, 2 ],
+                className: 'mdl-data-table__cell--non-numeric'
+            }
+        ]
+    } );
+      $('#example_1').DataTable( {
+        columnDefs: [
+            {
+                targets: [ 0, 1, 2 ],
+                className: 'mdl-data-table__cell--non-numeric'
+            }
+        ]
+    } );
+        $('#example_2').DataTable( {
+        columnDefs: [
+            {
+                targets: [ 0, 1, 2 ],
+                className: 'mdl-data-table__cell--non-numeric'
+            }
+        ]
+    } );
+
+} );
+      </script>
+  </body>
+</html>

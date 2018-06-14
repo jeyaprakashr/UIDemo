@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+      <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+      <link type="text/css" rel="stylesheet" href="css/style_5.css"  media="screen,projection"/>
+      <link type="text/css" rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/dataTables.material.min.css"  media="screen,projection"/>
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <style type="text/css">
+      select{
+      /*display: block;
+      background-color: rgba(255,255,255,0.9);
+      width: 100%;
+      padding: 5px;
+      border: 1px solid #c1c1c1;
+      border-radius: 2px;
+      height: 2rem;
+      margin: 0px 9px;*/
+      }
+      label{
+        display: inline-flex;
+        color: #333;
+      }
+      .page-footer{
+     /* z-index: 99999;
+      position: unset !important;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-color: white;
+      padding-top: 5px;
+      padding-bottom: 5px;*/
+    }
+    .dataTables_length{
+      width: 50%!important;
+    }
+    .card-panel{
+    background-color: #f7f7f7;
+    margin: 0px;
+    color: #757575;
+    height: 87px;
+    padding: 0px;
+    z-index: 999
+}
+h6
+{
+    padding-top: 5px;
+    padding-left: 14px;
+}
+.mdl-cell .mdl-cell--6-col{
+  width: 50%!important;
+}
+      </style>
+    </head>
+    <body onLoad="buildHtmlTable()">
+      <!--pre loader-->
+     <!-- <div class="preloader-background">
+        <div id="loading"></div>
+      </div>-->
+    	<!--side nav-->
+      <div class="row">
+       <div class="navbar-fixed">
+        <nav>
+          <div class="nav-wrapper">
+            <ul class="left">
+              <li><img src="images/finacs_logo_FA.jpg" alt="" class="circle responsive-img"></li>
+              <li><h5>FINACS</h5></li>
+              <li><h5 id="admin"></h5></li>
+            </ul>          
+            <ul class="right hide-on-med-and-down">
+              <li><i class="material-icons">search</i></li>
+              <li><a href="index_modules.html" style="padding: 0px;"><i class="material-icons">apps</i></a></li>
+              <li><i class="material-icons">notifications</i></li>
+              <li><i class="material-icons">settings</i></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </div>            
+        <ul  class="menu">
+                  <li id="a" class="menu-button home" >
+                    <a href="#!"  class="tooltipped" data-position="right" data-delay="50" data-tooltip="Favorites" >
+                    <i class="material-icons">star</i>
+                    </a>
+                  </li>
+                  <li id="b" class="menu-button home"><a  href="#!"  class="tooltipped" data-position="right" data-delay="50" data-tooltip="Student Billing" ><i class="material-icons">folder_shared</i> <!--Student Billing--></a>
+
+                  </li>
+                  <li id="c" class="menu-button home"><a  href="#!"  class="tooltipped" data-position="right" data-delay="50" data-tooltip="Account Receivables" ><i class="material-icons">account_balance_wallet</i><!--<img src="images/acc_rec_icon.png">--> <!--Account Receivables--></a>
+
+                  </li>
+                  <li class="menu-button home"><a  href="#!"  class=" tooltipped" data-position="right" data-delay="50" data-tooltip="Purchase" ><i class="material-icons">shop</i> <!--Purchase--></a>
+
+                  </li>
+                  <li class="menu-button home"><a  href="#!"  class="tooltipped" data-position="right" data-delay="50" data-tooltip="Account Payables" ><i class="material-icons">payment</i> <!--Account Payables--></a>
+
+                  </li>
+                  <li class="menu-button home"><a  href="#!"  class="tooltipped" data-position="right" data-delay="50" data-tooltip="General Ledger" ><i class="material-icons">book</i> <!--General Ledger--></a>
+
+                  </li>
+                  <li class="menu-button home"><a  href="#!"  class="tooltipped" data-position="right" data-delay="50" data-tooltip="Fixed Assets" ><i class="material-icons">assignment</i> <!--Fixed Assets--></a>
+
+                  </li>
+                  <li class="menu-button home"><a  href="#!"  class="tooltipped" data-position="right" data-delay="50" data-tooltip="Budgeting" ><i class="material-icons">account_balance</i><!--Budgeting--></a>
+
+                  </li>
+                  <li class="menu-button home"><a   href="#!" class="tooltipped" data-position="right" data-delay="50" data-tooltip="Inventory" ><i class="material-icons">list</i> <!--Inventory--></a>
+
+                  </li>
+                  <li class="menu-button home"><a  href="#!"  class="tooltipped" data-position="right" data-delay="50" data-tooltip="Payroll" ><i class="material-icons">attach_money</i> <!--Payroll--></a>
+
+                  </li>
+                  <li class="menu-button home"><a  href="#!"  class="tooltipped" data-position="right" data-delay="50" data-tooltip="Utilities" ><i class="material-icons">settings</i> <!--Utilities--></a>
+                  </li>
+                </ul>
+                <ul  class="menu-bar"  >
+                  <!-- <li><a href="#!" class="menu-button">Transactions</a></li>
+                  <li><a href="#!">Reports</a></li> -->                    
+                </ul>
+        <main>
+          <!--search family-->
+             <div class="row">
+                <div class="col s12 m12 l12">
+                	<div class="row">
+                		<div class="col l6" style="color: grey;">
+                    <p class="left breadcrumb">Student Billing</p>
+                    <i class="material-icons left" style="margin-top: 5px;margin-right: 0px; ">keyboard_arrow_right</i>
+                		<p class="left breadcrumb">Create/View Student Details</p>
+                		<i class="material-icons left" style="margin-top: 5px;margin-right: 0px;">keyboard_arrow_right</i>
+                		<p class="breadcrumb" id="enter_billing_services_title" style="display: block; position: absolute; padding-left: 315px; margin-top: 5px;">Student Information</p>
+                		<p class="breadcrumb" id="billing_services_listing_title" style="display: none; position: absolute; padding-left: 315px; margin-top: 5px;">Student Listing</p>
+                		</div>
+                	</div>
+                    <div id="search_pannel" style="display: none;">           
+                  <ul class="collapsible " data-collapsible="expandable accordion" >
+                      <li>
+                        <div class="collapsible-header"><i class="material-icons">search</i><b>Search</b></div>
+                        <div class="collapsible-body">
+                          <div class="row">
+                            <div class="col l12">     
+                            
+                              <div class="col l4">
+                               <div class="input-field ">
+                                <i class="material-icons prefix form_icon">textsms</i>
+                                <input  type="text" id="des" > 
+                                <label for="des">Student ID</label>
+                                </div>
+                              </div>
+                              <div class="col l4">
+                                <div class="input-field">
+                    <select>
+                      <option value="" disabled selected>Grade</option>
+                      <option value="1">PK</option>
+                      <option value="2">K</option>
+                      <option value="3">1</option>
+                      <option value="4">2</option>
+                      <option value="5">3</option>
+                      <option value="6">4</option>
+                      <option value="7">5</option>
+                      <option value="8">6</option>
+                      <option value="9">7</option>
+                      <option value="10">8</option>
+                      <option value="11">9</option>
+                      <option value="12">10</option>
+                      <option value="13">11</option>
+                      <option value="14">12</option>
+                    </select>
+                    <label></label>
+                  </div> 
+                              </div>
+                               <div class="col l2">
+                                <a class="waves-effect waves-light btn"  style="background-color: #0b5a96;font-size: 13px;"><i class="material-icons left">sync</i>Retrive</a>
+                              </div>
+                              <div class="col l2">
+                                <a class="btn-floating modal-trigger tooltipped " href="#modal1" data-position="down" data-delay="50" data-tooltip="Filter Fields"><i class="material-icons">filter_list</i></a>
+                                </div>
+                               
+                                                 
+                        </div>
+                      </div>
+                        </div>
+                      </li>
+                    </ul>
+                    </div>
+                     <!-- Modal Structure -->
+                              <div id="modal1" class="modal modal-fixed-footer" style="width: 50em;">
+                              <div class="modal-content">
+                              <h4>Search/Display Fields</h4>
+                                  <p>Select the database fiels for search and display</p><br>
+                                  <div class="row">
+                                    <div class="col l6">
+                                      <div class="input-field col s12">
+                                      <select multiple>
+                                        <option value="" disabled selected>Select Search Fields</option>
+                                        <option value="1">Family Code</option>
+                                        <option value="2">Family Name</option>
+                                        <option value="3">Address 1</option>
+                                        <option value="4">Address 2</option>
+                                        <option value="5">City</option>
+                                        <option value="6">State Code</option>
+                                        <option value="7">Zip Code</option>
+                                      </select>
+                                      <label></label>
+                                      </div>
+                                    </div>
+                                  <div class="col l6">
+                                      <div class="input-field col s12">
+                                      <select multiple>
+                                        <option value="" disabled selected>Select Display Fields</option>
+                                        <option value="1">Family Code</option>
+                                        <option value="2">Family Name</option>
+                                        <option value="3">Address 1</option>
+                                        <option value="4">Address 2</option>
+                                        <option value="5">City</option>
+                                        <option value="6">State Code</option>
+                                        <option value="7">Zip Code</option>
+                                      </select>
+                                      <label></label>
+                                  </div>
+                                  </div>
+                                </div>
+                              </div>
+                            <div class="modal-footer">
+                              <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Accept</a>
+                              <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Decline</a>
+                            </div>
+                         </div>            
+                     
+                    <div class="card">
+                        <div class="card-content">
+                          <div class="row" class="template" id="summary_code_template" style="display: none;">
+                            <div class="col l12">
+                            <ul>
+                               <li class="col l6">
+                               <div class="input-field ">
+                                <i class="material-icons prefix form_icon">textsms</i>
+                                <input  type="text" id="des" > 
+                                <label for="des">Student ID</label>
+                                </div>
+                              </li>
+                              <li class="col l6">
+                                <div class="input-field">
+                    <select>
+                      <option value="" disabled selected>Grade</option>
+                      <option value="1">PK</option>
+                      <option value="2">K</option>
+                      <option value="3">1</option>
+                      <option value="4">2</option>
+                      <option value="5">3</option>
+                      <option value="6">4</option>
+                      <option value="7">5</option>
+                      <option value="8">6</option>
+                      <option value="9">7</option>
+                      <option value="10">8</option>
+                      <option value="11">9</option>
+                      <option value="12">10</option>
+                      <option value="13">11</option>
+                      <option value="14">12</option>
+                    </select>
+                    <label></label>
+                  </div> 
+                              </li>
+                              <li class="col l4">
+                                <div class="input-field">
+                                 <i class="material-icons prefix form_icon">person</i>
+                                  <input  type="text" id="des" > 
+                                  <label for="des">First Name</label>
+                                </div>
+                              </li>
+                               <li class="col l4">
+                                <div class="input-field">
+                                 <i class="material-icons prefix form_icon">person</i>
+                                  <input  type="text" id="des" > 
+                                  <label for="des">Middle Name</label>
+                                </div>
+                              </li>
+                              <li class="col l4">
+                                <div class="input-field">
+                                 <i class="material-icons prefix form_icon">person</i>
+                                  <input  type="text" id="des" > 
+                                  <label for="des">Last Name</label>
+                                </div>
+                              </li>
+                              <li class="col l9">
+                                <div class="input-field">
+                                 <i class="material-icons prefix form_icon">chrome_reader_mode</i>
+                                  <input  type="text" id="des" > 
+                                  <label for="des">Full Name</label>
+                                </div>
+                              </li>
+                              <li class="col l3">                               
+                                <input type="checkbox" class="filled-in" id="filled-in-box-amt" />
+                    <label for="filled-in-box-amt">Inactive</label>
+                              </li>
+                            </ul>
+                          </div>
+                          </div>
+                          <div class="row" class="template" id="setup_family_sponsor_template" style="display: none;">
+                            <div class="col l12">     
+                            <ul>
+                              <li class="col l4">
+                               <div class="input-field ">
+                                <select>
+                                  <option value="" disabled selected>Search By</option>
+                                  <option value="1">Family Code</option>
+                                  <option value="2">Family Name</option>
+                                  <option value="3">All</option>
+                                </select>
+                                <label></label>
+                                </div>
+                              </li>
+                              <li class="col l4">
+                                <div class="input-field">
+                                 <i class="material-icons prefix form_icon">textsms</i>
+                                  <input  type="text" id="des" > 
+                                  <label for="des">Value</label>
+                                </div>
+                              </li>
+                               <li class="col l2">
+                                <a class="waves-effect waves-light btn"  style="background-color: #0b5a96;font-size: 13px;"><i class="material-icons left">sync</i>Retrive</a>
+                              </li>
+                              <li class="col l2">
+                                <a class="btn-floating modal-trigger tooltipped " href="#modal1" data-position="down" data-delay="50" data-tooltip="Filter Fields"><i class="material-icons">filter_list</i></a>
+                                </li>
+                                <!-- Modal Structure -->
+                              <div id="modal1" class="modal modal-fixed-footer" style="width: 50em;">
+                              <div class="modal-content">
+                              <h4>Search/Display Fields</h4>
+                                  <p>Select the database fiels for search and display</p><br>
+                                  <div class="row">
+                                    <div class="col l12">
+                                      <div class="input-field col s12">
+                                      <select multiple>
+                                        <option value="" disabled selected>Select Search Fields</option>
+                                        <option value="1">Family Code</option>
+                                        <option value="2">Family Name</option>
+                                        <option value="3">Address 1</option>
+                                        <option value="4">Address 2</option>
+                                        <option value="5">City</option>
+                                        <option value="6">State Code</option>
+                                        <option value="7">Zip Code</option>
+                                      </select>
+                                      <label></label>
+                                      </div>
+                                    </div>
+                                  <div class="col l12">
+                                      <div class="input-field col s12">
+                                      <select multiple>
+                                        <option value="" disabled selected>Select Display Fields</option>
+                                        <option value="1">Family Code</option>
+                                        <option value="2">Family Name</option>
+                                        <option value="3">Address 1</option>
+                                        <option value="4">Address 2</option>
+                                        <option value="5">City</option>
+                                        <option value="6">State Code</option>
+                                        <option value="7">Zip Code</option>
+                                      </select>
+                                      <label></label>
+                                  </div>
+                                  </div>
+                                </div>
+                              </div>
+                            <div class="modal-footer">
+                              <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Accept</a>
+                              <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Decline</a>
+                            </div>
+                         </div>
+                         </ul>                           
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+    <!--end of search-->
+    <!-- block quote cards-->
+    
+    <div class="row">
+      <div class="col l12 left">
+        <div class="card" id="billing_services" style="display: block;">
+          <div class="card-content" id="masterdiv">
+                    <!--<ul class="info_items"> 
+                        <li class="form_icon activator"><i class="material-icons medium">account_circle</i></li> 
+                        <li class="card-title">Mr.Mrs.Brown</li>
+                        <li class="right activator" id="vert_icon"><i class=" material-icons activator">keyboard_arrow_up</i></li>                  
+                        <li class="right"><blockquote id="due">Balance Due<br>$1325.00</blockquote></li>
+                        <li class="right"><blockquote id="charges">Total Charges<br>$1500.00</blockquote></li>
+                        <li class="right"><blockquote id="pay">Total Payments<br>$50.00</blockquote></li>
+                        <li class="right"><blockquote id="credits">Total Credits<br>$125.00</blockquote></li>                   
+                    </ul>-->
+                    <div class="card-tabs">
+                    <ul class="tabs tabs-fixed-width">
+                      <li id="si_tab" class="tab"><a class="" href="#test4">Student Information</a></li>
+                      <li id="ai_tab" class="tab"><a href="#test5">Add Information</a></li>
+                       <li id="ai_tab" class="tab"><a href="#test6">Student Family/Sponsor Linking</a></li>
+                    </ul>
+                  </div>
+                 
+                 <div id="test4">
+                      <!--table for Receive Payments-->
+                      <div class="row">
+                      	<br>
+                      	<div class="col l4">
+                      	   <div class="input-field">
+                               <input  type="text" id="des" > 
+                               <label for="des">Parent/Guardian</label>
+                            </div>
+                      	</div>
+                      	<div class="col l4">
+                      	   <div class="input-field">
+                               
+                               <input  type="text" id="des" > 
+                               <label for="des">Family Code</label>
+                            </div>
+                      	</div>
+                      	<div class="col l4">
+                      	   <div class="input-field">
+                               
+                               <input  type="text" id="des" > 
+                               <label for="des">Street</label>
+                            </div>
+                      	</div>
+                      	<div class="col l4">
+                      	   <div class="input-field">
+                              
+                               <input  type="text" id="des" > 
+                               <label for="des">City</label>
+                            </div>
+                      	</div>
+                      	<div class="col l4">
+                      	   <div class="input-field">
+                               
+                               <input  type="text" id="des" > 
+                               <label for="des">State</label>
+                            </div>
+                      	</div>
+                      	<div class="col l4">
+                      	   <div class="input-field">
+                               
+                               <input  type="text" id="des" > 
+                               <label for="des">zip</label>
+                            </div>
+                      	</div>
+                      	<div class="col l4">
+                      	   <div class="input-field">
+                              
+                               <input  type="text" id="des" > 
+                               <label for="des">Phone</label>
+                            </div>
+                      	</div>
+                      	<div class="col l4">
+                      	   <div class="input-field">
+                               
+                               <input  type="text" id="des" > 
+                               <label for="des">Homeroom</label>
+                            </div>
+                      	</div>
+                      	<div class="col l4">
+                      	   <div class="input-field">
+                               
+                               <input  type="text" id="des" > 
+                               <label for="des">Gender</label>
+                            </div>
+                      	</div>
+                      	<div class="col l4">
+                      	   <div class="input-field">
+                               
+                               <input  type="text" id="des" > 
+                               <label for="des">Language</label>
+                            </div>
+                      	</div>
+                      	<div class="col l4">
+                      	   <div class="input-field">
+                               
+                               <input  type="text" id="des" > 
+                               <label for="des">Date of Birth</label>
+                            </div>
+                      	</div>
+                      	<div class="col l4">
+                      	   <div class="input-field">
+                               
+                               <input  type="text" id="des" > 
+                               <label for="des">FACTS Agreement No</label>
+                            </div>
+                      	</div>
+                      	<div class="col l4">
+                      	   <div class="input-field">
+                               
+                               <input  type="text" id="des" > 
+                               <label for="des">SMART Agreement No</label>
+                            </div>
+                      	</div>
+                      </div>
+
+                 </div>
+                   
+                   
+                    <div id="test5">
+                        <!--table for credits Listing-->
+                        <div class="row">
+                      <div class="col l6">
+                      
+                      </div>
+                      <div class="col l6">
+                      	
+                      	
+                      </div>
+                      </div>
+                        <!--<a href="#" class="waves-effect waves-light btn-floating btn-medium">
+                        <i class="material-icons right">add</i></a>-->
+                      </div>
+                      <div id="test6">
+                        
+                        <div class="row">
+                          <div class="col l12"> 
+                            <table>
+                    <thead>
+                      <th>Family/Sponsor Code</th>
+                      <th>Family/Sponsor Name</th>
+                      <th>Family/Sponsor Type</th>
+                    </thead>
+                    <tbody>
+                       <tr>
+              
+               
+                <td>Mr.Mrs Nixon</td>
+                <td>NiF0001</td>
+                <td>Primary</td>
+                
+                
+            </tr>
+            <tr>
+               
+               
+                <td>Mr.Mrs.Tarlly</td>
+                <td>Tr0002</td>
+                <td>Secondary</td>
+                
+            </tr>
+            <tr>
+             
+            </tr>
+                    </tbody>
+                  </table>
+                  <a class="waves-effect waves-light btn modal-trigger" href="#add_billing_charges"><i class="material-icons left">add</i>Add Students</a>
+                          </div>
+                        </div>
+                         
+                      </div>
+                   
+                 
+            </div>
+        </div>
+
+        <div id="billing_services_listing_template" class="card" style="display: none;">
+        	<div class="card-content">
+        		<!--<div class="card-tabs">
+                    <ul class="tabs tabs-fixed-width">
+                      <li id="si_tab" class="tab"><a class="active" href="#test7">Family/Sponsor Information</a></li>
+                      <li id="ai_tab" class="tab"><a href="#test6">Custom Fields</a></li>                      
+                    </ul>
+                  </div>
+                   <div id="test7">
+                   		<div class="row">
+                   			<br>
+                   		<ul class="collection col l6">
+
+                      	  <li class="collection-item active">Billing Address</li>					        
+					      <li class="collection-item">
+					      	<div class="col l12">
+                      	     <div class="input-field">                               
+                               <textarea id="textarea1" class="materialize-textarea"></textarea>
+          					   <label for="textarea1">Address</label>
+                             </div>
+                      		</div>
+                      		<div class="col l4">
+                      	     <div class="input-field">                               
+                               <input  type="text" id="des" > 
+                               <label for="des">City/Zip code</label>
+                             </div>
+                      		</div>
+                      		<div class="col l4">
+                      	     <div class="input-field">                               
+                               <input  type="text" id="des" > 
+                               <label for="des">State</label>
+                             </div>
+                      		</div>
+                      		<div class="col l4">
+                      	     <div class="input-field">                               
+                               <input  type="text" id="des" > 
+                               <label for="des">Country</label>
+                             </div>
+                      		</div>
+					      	</li>
+					  	</ul>
+					  	<ul class="collection col l6">
+					  		<li class="collection-item active">Mailing Address</li>					        
+					      <li class="collection-item">
+					      	<div class="col l12">
+                      	     <div class="input-field">                               
+                               <textarea id="textarea1" class="materialize-textarea"></textarea>
+          					   <label for="textarea1">Address</label>
+                             </div>
+                      		</div>
+                      		<div class="col l4">
+                      	     <div class="input-field">                               
+                               <input  type="text" id="des" > 
+                               <label for="des">City/Zip code</label>
+                             </div>
+                      		</div>
+                      		<div class="col l4">
+                      	     <div class="input-field">                               
+                               <input  type="text" id="des" > 
+                               <label for="des">State</label>
+                             </div>
+                      		</div>
+                      		<div class="col l4">
+                      	     <div class="input-field">                               
+                               <input  type="text" id="des" > 
+                               <label for="des">Country</label>
+                             </div>
+                      		</div>
+					      	</li>
+					  	</ul>
+					    </div>
+
+					    <div class="row">
+                   		<ul class="collection col l6">
+                      	  <li class="collection-item active">Contact Details</li>					        
+					      <li class="collection-item">
+					      	<div class="col l6">
+                      	     <div class="input-field">                               
+                               <input  type="text" id="des" > 
+                               <label for="des">Phone</label>
+                             </div>
+                      		</div>
+                      		<div class="col l6">
+                      	     <div class="input-field">                               
+                               <input  type="text" id="des" > 
+                               <label for="des">Fax</label>
+                             </div>
+                      		</div>
+                      		<div class="col l6">
+                      	     <div class="input-field">                               
+                               <input  type="text" id="des" > 
+                               <label for="des">E-mail</label>
+                             </div>
+                      		</div>
+                      		<div class="col l6">
+                      	     <div class="input-field">                               
+                               <input  type="text" id="des" > 
+                               <label for="des">WebSite</label>
+                             </div>
+                      		</div>
+					      	</li>
+					  	</ul>
+					  	<ul class="collection col l6">
+					  		<li class="collection-item active">Account Details</li>					        
+					      <li class="collection-item">
+					      	<div class="col l6">
+                      	     <div class="input-field">                               
+                               <input  type="text" id="des" > 
+                               <label for="des">A/R Account Code</label>
+                             </div>
+                      		</div>
+                      		<div class="col l6">
+                      	     <div class="input-field">                               
+                               <input  type="text" id="des" > 
+                               <label for="des">A/R Account Name</label>
+                             </div>
+                      		</div>
+                      		<div class="col l6">
+                      	     <div class="input-field">                               
+                               <input  type="text" id="des" > 
+                               <label for="des">Payment Terms</label>
+                             </div>
+                      		</div>
+                      		<div class="col l6">
+                      	     <div class="input-field">                               
+                               <input  type="text" id="des" > 
+                               <label for="des">Account Balance</label>
+                             </div>
+                      		</div>
+					      	</li>
+					  	</ul>
+					  	<ul class="collapsible " data-collapsible="accordion"">
+                      <li>
+                        <div class="collapsible-header active"><i class="material-icons">textsms</i><b>Nacha Account</b></div>
+                        <div class="collapsible-body">
+					  	<div class="row">
+					  		<div class="col l12">
+					  			<div class="col l6">
+					  			  
+                      	     	   <div class="input-field">                               
+                               		<input  type="text" id="des" > 
+                              	    <label for="des">Nacha Amount</label>
+                             	   </div>
+                      			 
+					  			</div>
+					  			<div class="col l6">
+					  			 
+                      	     	   <div class="input-field">                               
+                               		<input  type="text" id="des" > 
+                              	    <label for="des">Transaction Code</label>
+                             	   </div>
+					  			</div>
+					  			<div class="col l6">
+					  			 
+                      	     	   <div class="input-field">                               
+                               		<input  type="text" id="des" > 
+                              	    <label for="des">Account No</label>
+                             	   </div>
+					  			</div>
+					  			<div class="col l6">
+					  			  
+                      	     	   <div class="input-field">                               
+                               		<input  type="text" id="des" > 
+                              	    <label for="des">Routing No</label>
+                             	   </div>
+					  			</div>
+					  		</div>
+					  	</div>
+					  	</div>
+                    </li>
+                </ul>
+					  	<div class="row">
+					  		<div class="col l12">
+					  			<h5>Duplicate Statement</h5>
+					  			<table>
+					  				<thead>
+					  					<th>Family Code</th>
+					  					<th>Family Name</th>
+					  				</thead>
+					  				<tbody>
+					  					<tr>
+					  					<td></td>
+					  					<td></td>
+					  					</tr>
+					  					<tr>
+					  					<td></td>
+					  					<td></td>
+					  					</tr>
+					  				</tbody>
+					  			</table>
+					  		</div>
+					  	</div>
+					    </div>
+
+                   </div>
+                   <div id="test6">
+                   	<div class="row">
+                   		<div class="col l6">
+                   			
+                   		</div>
+                   	</div>
+                   </div>
+             </div>-->
+               <div class="row">
+                        
+                        <div class="col l12">
+                          <br>
+                          <table id="example" class="display" style="width:100%">
+        <thead>
+            <tr>
+                <th>Grade</th>
+                <th>Student FullName</th>
+                <th>Family Name</th>
+                <th>Family Code</th>
+                <th>InActive</th>
+              
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+              <td>10</td>
+                <td>Tiger Nixon</td>
+                <td>Mr.Mrs Nixon</td>
+                <td>NiF0001</td>
+                <td>N</td>
+                
+                
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Sam Tarlly</td>
+                <td>Mr.Mrs.Tarlly</td>
+                <td>Tr0002</td>
+                <td>N</td>
+                
+            </tr>
+            <tr>
+              <td>7</td>
+                <td>Ashton Cox</td>
+                
+                <td>Mr.Mrs.Cox</td>
+                <td>Co0001</td>
+                <td>N</td>
+               
+            </tr>
+            <tr>
+              <td>5</td>
+                <td>Cedric Kelly</td>
+                <td>Mr.Mrs Kelly</td>
+                <td>KeF0002</td>
+                <td>N</td>
+                
+               
+            </tr>
+            <tr>
+              <td>10</td>
+                <td>Airi Satou</td>
+                <td>Mr.Mrs Satou</td>
+                <td>Sat0002</td>
+                <td>N</td>
+                
+                
+            </tr>
+            <tr>
+              <td>5</td>
+                <td>Brielle Williamson</td>
+                <td>Mr.Mrs. Williamson</td>
+                <td>Wil0001</td>
+                
+                <td>N</td>
+                
+            </tr>
+            <tr>
+               <td>4</td>
+                <td>Herrod Chandler</td>
+                <td>Mr.Mrs. Chandler</td>
+                <td>Cha0003</td>
+               
+                <td>N</td>
+                
+            </tr>
+            <tr>
+               <td>PK</td>
+                <td>Rhona Davidson</td>
+                <td>Mr.Mrs Davidson</td>
+                <td>Dav0003</td>
+               
+                 <td>N</td>
+                
+            </tr>
+            <tr>
+              <td>K</td>
+                <td>Colleen Hurst</td>
+                <td>Mr.Mrs. Hurst</td>
+                <td>HuF001</td>
+                
+                <td>Y</td>
+                
+            </tr>
+            <tr>
+              <td>7</td>
+                <td>Sonya Frost</td>
+                <td>Mr.Mrs Frost</td>
+                <td>Fro003</td>
+                 <td>N</td>
+                
+            </tr>
+           
+        </tbody>
+        <tfoot>
+            <tr>
+                <th>Grade</th>
+                <th>Student FullName</th>
+                <th>Family Name</th>
+                <th>Family Code</th>
+                <th>InActive</th>
+            </tr>
+        </tfoot>
+    </table>
+                        </div>
+                      </div>
+
+
+
+        </div>
+
+      </div>
+
+
+     
+
+
+    </div>
+
+     
+
+<div class="row">
+         <div class="fixed-action-btn horizontal click-to-toggle">
+    <a id="billing_services_listing" class="btn-floating btn-large tooltipped red" data-position="left" data-delay="50" data-tooltip="Student Listing" style="display: block;">
+      <i class="material-icons">list</i>
+    </a>
+    <a id="enter_billing_services" class="btn-floating btn-large tooltipped red" data-position="left" data-delay="50" data-tooltip="Student Information" style="display: none;">
+      <i class="material-icons">view_list</i>
+    </a>
+</div>
+    </div>
+
+
+    <!--<div class="row">
+      <div class="col l9">
+        <div class="card">
+          <div class="card-content">
+          	<div class="card-title">Payments</div>
+            <table>
+               <thead>
+                   <tr>
+                     <th>Type</th>
+                     <th>Reference Number</th>
+                     <th>Date</th>
+                     <th>Memo</th>
+                     <th>Amount</th>
+                     <th>UnAdj Amount</th>
+                     <th>Check No</th>  
+                     <th>Check Date</th>
+                     <th>Account code</th>                                 
+                   </tr>
+               </thead>
+                  <tbody>
+                    <tr>
+                    <td>Cash</td>
+                    <td>BR00000001</td>
+                    <td>11/08/17</td>
+                    <td>Check Payment</td>
+                    <td>200.00</td>
+                    <td>0</td>
+                    <td>15464</td>
+                    <td>11/08/2017</td>
+                    <td>5456400</td>
+                    </tr>
+                  </tbody>                             
+              </table>
+          </div>
+        </div>
+      </div>     
+    </div>-->
+
+
+  
+
+          </main>
+          </body>
+<!--footer-->
+          <footer class="page-footer">
+            <!--floating buttons-->
+                  <ul class="button-list">
+                    <li><a class="btn-floating  blue "><i class="material-icons">attach_file</i></a></li>
+                    <li><a class="btn-floating  pink lighten-2"><i class="material-icons">print</i></a></li>
+                    <li><a class="btn-floating yellow darken-1"><i class="material-icons">mail_outline</i></a></li>
+                    <li><a class="btn-floating deep-purple lighten-2"><i class="material-icons">create</i></a></li>
+                    <li><a class="btn-floating lime accent-4"><i class="material-icons">monetization_on</i></a></li>
+                    <li><a class="btn-floating   blue-grey lighten-1 "><i class="material-icons">block</i></a></li>
+                    <li><a class="btn-floating  teal "><i class="material-icons">note_add</i></a></li>
+                    <li><a id="save" class="btn-floating green" onclick="SaveTable()"><i class="material-icons">save</i></a></li>
+                    <li><a id="clear" class="btn-floating orange" onclick="DeleteRows()"><i class="material-icons">clear</i></a></li>
+                    <li><a class="btn-floating red"><i class="material-icons">delete</i></a></li>                    
+                  </ul>                
+                  </div>
+          </footer>
+      <!--Import jQuery before materialize.js-->
+      <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+      <script type="text/javascript" src="js/materialize.min.js"></script>
+      <script type="text/javascript" src="js/main_JS.js"></script>
+       <script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+      <script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/dataTables.material.min.js"></script>
+      <script type="text/javascript">
+        $(document).ready(function(){
+    $('.modal').modal();
+  });
+       $(document).ready(function() {
+    // Setup - add a text input to each footer cell
+    $('#example tfoot th').each( function () {
+        var title = $(this).text();
+        $(this).html( '<input type="text" placeholder="Search '+title+'" />' );
+    } );
+ 
+    // DataTable
+    var table = $('#example').DataTable();
+ 
+    // Apply the search
+    table.columns().every( function () {
+        var that = this;
+ 
+        $( 'input', this.footer() ).on( 'keyup change', function () {
+            if ( that.search() !== this.value ) {
+                that
+                    .search( this.value )
+                    .draw();
+            }
+        } );
+    } );
+} );
+      </script>
+  </body>
+</html>

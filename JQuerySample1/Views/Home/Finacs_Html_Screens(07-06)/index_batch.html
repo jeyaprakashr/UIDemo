@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+      <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+      <link type="text/css" rel="stylesheet" href="css/style_5.css"  media="screen,projection"/>
+      <link type="text/css" rel="stylesheet" href="css/dashboard_style.css"  media="screen,projection"/>
+      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.2.0/css/ion.rangeSlider.css">
+      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.2.0/css/ion.rangeSlider.min.css">
+      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.2.0/css/ion.rangeSlider.skinModern.css">
+      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.2.0/css/ion.rangeSlider.skinModern.min.css">
+      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.2.0/css/ion.rangeSlider.skinModern.min.css.map">
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <!--Import Materialize-Stepper CSS -->
+ <link rel="stylesheet" href="css/materialize-stepper.min.css">
+ <link type="text/css" rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/dataTables.material.min.css"  media="screen,projection"/>
+ <style type="text/css">
+  .btn, .btn-large {
+  background-color: #2196F3;
+}
+ul.stepper.horizontal .step-title{
+  white-space: normal;
+}
+.step-actions{
+  position: initial;
+}
+button:focus {
+   outline: none;
+   background-color: #2196F3;
+}
+
+.btn:hover, .btn-large:hover {
+   background-color: #64b5f6;
+}
+ </style>
+    </head>
+    <body onLoad="buildHtmlTable()">
+      <!--pre loader
+      <div class="preloader-background">
+        <div id="loading"></div>
+      </div>-->
+    	<!-- nav-->
+    <div class="row">
+       <div class="navbar-fixed">
+        <nav>
+          <div class="nav-wrapper">
+            <ul class="left">
+              <li><img src="images/finacs_logo_FA.jpg" alt="" class="circle responsive-img"></li>
+              <li><h5>FINACS</h5></li>
+              <!--<li><h5 id="admin">(Financial Accounting for schools)</h5></li>-->
+            </ul>          
+            <ul class="right hide-on-med-and-down">
+              <li><i class="material-icons">search</i></li>
+              <li><a href="index_modules.html" style="padding: 0px;"><i class="material-icons">apps</i></a></li>
+              <li><i class="material-icons">notifications</i></li>
+              <li><i class="material-icons">settings</i></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </div>             
+        <ul  class="menu">
+                  <li id="a" class="menu-button home" >
+                    <a href="#!" class="tooltipped" data-position="right" data-delay="50" data-tooltip="Favorites" >
+                    <i class="material-icons">star</i>
+                    </a>
+                  </li>
+                  <li id="b" class="menu-button home"><a  href="#!"  class="tooltipped" data-position="right" data-delay="50" data-tooltip="Student Billing" ><i class="material-icons">folder_shared</i> <!--Student Billing--></a>
+                  </li>
+                  <li id="c" class="menu-button home"><a  href="#!"  class="tooltipped" data-position="right" data-delay="50" data-tooltip="Account Receivables" ><i class="material-icons">account_balance_wallet</i><!--<img src="images/acc_rec_icon.png">--> <!--Account Receivables--></a>
+                  </li>
+                  <li class="menu-button home"><a  href="#!"  class=" tooltipped" data-position="right" data-delay="50" data-tooltip="Purchase" ><i class="material-icons">shop</i> 
+                    <!--Purchase--></a>
+                  </li>
+                  <li class="menu-button home"><a  href="#!"  class="tooltipped" data-position="right" data-delay="50" data-tooltip="Account Payables" ><i class="material-icons">payment</i> <!--Account Payables--></a>
+                  </li>
+                  <li class="menu-button home"><a  href="#!"  class="tooltipped" data-position="right" data-delay="50" data-tooltip="General Ledger" ><i class="material-icons">book</i> 
+                    <!--General Ledger--></a>
+                  </li>
+                  <li class="menu-button home"><a  href="#!"  class="tooltipped" data-position="right" data-delay="50" data-tooltip="Fixed Assets" ><i class="material-icons">assignment</i> <!--Fixed Assets--></a>
+                  </li>
+                  <li class="menu-button home"><a  href="#!"  class="tooltipped" data-position="right" data-delay="50" data-tooltip="Budgeting" ><i class="material-icons">account_balance</i><!--Budgeting--></a>
+                  </li>
+                  <li class="menu-button home"><a   href="#!" class="tooltipped" data-position="right" data-delay="50" data-tooltip="Inventory" ><i class="material-icons">list</i> <!--Inventory--></a>
+                  </li>
+                  <li class="menu-button home"><a  href="#!"  class="tooltipped" data-position="right" data-delay="50" data-tooltip="Payroll" ><i class="material-icons">attach_money</i> 
+                    <!--Payroll--></a>
+                  </li>
+                  <li class="menu-button home"><a  href="#!"  class="tooltipped" data-position="right" data-delay="50" data-tooltip="Utilities" ><i class="material-icons">settings</i> 
+                    <!--Utilities--></a>
+                  </li>
+              </ul>
+                    <ul  class="menu-bar"  >
+                     <!-- <li><a href="#!" class="menu-button">Transactions</a></li>
+                      <li><a href="#!">Reports</a></li> -->                    
+                    </ul>
+          <main>
+          <!--search family-->
+           <div class="row">
+            <div class="col s12 m12 l12">
+              <div class="row">
+                    <div class="col l6" style="color: grey;">
+                       <p class="left breadcrumb">Student Billing</p>
+                    <i class="material-icons left" style="margin-top: 5px;margin-right: 0px;">keyboard_arrow_right</i>
+                    <p class="left breadcrumb">Batch Process</p>
+                    <i id="ra" style="display: none; margin-top: 5px; margin-right: 0px;" class="material-icons left" >keyboard_arrow_right</i>
+                    <p class="breadcrumb" id="bm"  style="display: none; ">Batch Management</p>
+                    <p class="breadcrumb" id="be"  style="display: none; ">Batch Entry</p>
+                    </div>
+                  </div>
+              <div class="card">
+               <div class="card-content">
+                  <ul class="stepper horizontal">
+                     <li class="step active">
+                        <div class="step-title waves-effect waves-dark">Batch Information</div>
+                        <div class="step-content">
+                           <div class="row">
+                              <div class="input-field col s4">
+                                 <input id="email" name="email" type="email"  >
+                                 <label for="first_name">Batch Number</label>
+                              </div>
+                              <div class="input-field col s4">
+                                 <input id="email" name="email" type="email" >
+                                 <label for="first_name">Batch Date</label>
+                              </div>
+                              <div class="input-field col s4">
+                                 <input id="email" name="email" type="email"  >
+                                 <label for="first_name">Fund</label>
+                              </div>
+                              <div class="input-field col s6">
+                                 <input id="email" name="email" type="email"  >
+                                 <label for="first_name">Cost Center</label>
+                              </div>
+                               <div class="input-field col s6">
+                                 <input id="email" name="email" type="email"  >
+                                 <label for="first_name">Batch Description</label>
+                              </div>
+                              <div class="input-field col s12">
+                                  <textarea id="textarea1" class="materialize-textarea"></textarea>
+                      <label for="textarea1">Memo</label>
+                              </div>
+                           </div>
+                           <p>
+                                 <input type="checkbox" class="filled-in" id="filled-in-box"/>
+                                 <label for="filled-in-box">Continue as FACT/SMART</label>
+                               </p>
+                           <div class="step-actions">
+                              <button data-target="modal1" class="waves-effect waves-dark btn next-step">continue</button>
+                           </div>
+                           
+                        </div>
+                     </li>
+                     
+                     <li class="step">
+                        <div class="step-title waves-effect waves-dark">Student List</div>
+                        <div class="step-content">
+                          <!-- Modal Trigger -->
+                           <!--<a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>-->
+                            <!-- Modal Structure -->
+                          
+                            <div id="modal1" class="modal modal-fixed-footer">
+                  <div class="modal-content">
+                      <h4>Add Students</h4>
+                      <div class="row">
+                              <div class="input-field col s4">
+                                 <input class="with-gap" name="group1" type="radio" id="test1"  />
+                     <label for="test1">Individual Students</label>
+                              </div>
+                              <div class="input-field col s4">
+                                 <input class="with-gap" name="group1" type="radio" id="test2"  />
+                     <label for="test2">Students Matching Database Criteria</label>
+                              </div>
+                              <div class="input-field col s4">
+                                 <input class="with-gap" name="group1" type="radio" id="test3"  />
+                     <label for="test3">Get Students From Existing Group</label>
+                              </div>
+                              <div class="input-field col s4">
+                                 <input class="with-gap" name="group1" type="radio" id="test4"  />
+                     <label for="test4">Select Students form Specific Family/Sponsor</label>
+                              </div>
+                              <div class="input-field col s6">
+                                 <input class="with-gap" name="group1" type="radio" id="test5"  />
+                     <label for="test5">Select Family/Sponsor to apply the unapplied Recipts/Credits</label>
+                              </div>
+                           </div>
+                  </div>
+                  <div class="modal-footer">
+                    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Accept</a>
+                    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Cancel</a>
+                  </div>
+                </div>
+
+                <!--content-->
+                <table class="highlight">
+                  <thead>
+                   <tr>
+                    <th>Select</th>
+                        <th>Grade</th>
+                        <th>Student ID</th>
+                        <th>Student Name</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                      <tr>
+                      <td><input type="checkbox" id="myCheckbox" class="filled-in" /><label  for="myCheckbox"></label></td>
+                      
+                      <td>10</td>
+                      <td>SI001</td>
+                      <td>Alvin</td>
+                      </tr>
+                      <tr>
+                      <td><input type="checkbox" id="myCheckbox" class="filled-in" /><label  for="myCheckbox"></label></td>
+                      
+                      <td>11</td>
+                      <td>SI002</td>
+                      <td>Alan</td>
+                      </tr>
+                      <tr>
+                      <td><input type="checkbox" id="myCheckbox" class="filled-in" /><label  for="myCheckbox"></label></td>
+                      
+                      <td>12</td>
+                      <td>SI003</td>
+                      <td>Jonathan</td>
+                    </tr>
+                  </tbody>
+                </table>
+                 
+                           
+                           <div class="step-actions">
+                              <button class="waves-effect waves-dark btn next-step">CONTINUE</button>
+                              <button class="waves-effect waves-dark btn-flat previous-step">BACK</button>
+                           </div>
+                        </div>
+                     </li>
+                     <li class="step">
+                        <div class="step-title waves-effect waves-dark">Specify Batch Task</div>
+                        <div class="step-content">
+                           <div class="row">
+                              <div class="input-field col s4">
+                                 <input class="with-gap" name="group1" type="radio" id="test6"  />
+                     <label for="test6">Create a New Invoice</label>
+                              </div>
+                              <div class="input-field col s4">
+                                 <input class="with-gap" name="group1" type="radio" id="test7"  />
+                     <label for="test7">Create Invoices from Template</label>
+                              </div>
+                              <div class="input-field col s4">
+                                 <input class="with-gap" name="group1" type="radio" id="test8"  />
+                     <label for="test8">Add to all Invoices with Past Due Amount</label>
+                              </div>
+                              <div class="input-field col s4">
+                                 <input class="with-gap" name="group1" type="radio" id="test9"  />
+                     <label for="test9">Add to all Open Invoices (Date Range)</label>
+                              </div>
+                              <div class="input-field col s4">
+                                 <input class="with-gap" name="group1" type="radio" id="test10"  />
+                     <label for="test10">Add to all Open Invoices (Invoice Range)</label>
+                              </div>
+                              <div class="input-field col s4">
+                                 <input class="with-gap" name="group1" type="radio" id="test11"  />
+                     <label for="test11">Add other charges to all Open Invoices</label>
+                              </div>
+                              <div class="input-field col s4">
+                                 <input class="with-gap" name="group1" type="radio" id="test12"  />
+                     <label for="test12">Create Credit Note</label>
+                              </div>
+                              <div class="input-field col s4">
+                                 <input class="with-gap" name="group1" type="radio" id="test13"  />
+                     <label for="test13">Create Payment</label>
+                              </div>
+                           </div>
+                           <div class="step-actions">
+                              <button class="waves-effect waves-dark btn next-step">continue</button>
+                           </div>
+                        </div>
+                     </li>
+                     <li class="step">
+                        <div class="step-title waves-effect waves-dark">Select Services</div>
+                        <div class="step-content">
+                <div class="row">
+                              <div class="input-field col s4">
+                                 <input type="checkbox" class="filled-in" id="filled-in-box"  />
+                     <label for="filled-in-box">Billing Charges</label>
+                              </div>
+                              <div class="input-field col s4">
+                                 <input type="checkbox" class="filled-in" id="filled-in-box"  />
+                     <label for="filled-in-box">Credits</label>
+                              </div>
+                              <div class="input-field col s4">
+                                 <input type="checkbox" class="filled-in" id="filled-in-box"/>
+                     <label for="filled-in-box">Payments</label>
+                              </div>
+                          </div><br>
+                              <div class="row">
+                               <ul class="collection with-header col l6">
+                                  <li class="collection-header"><h5>Available Services</h5></li>
+                      <li class="collection-item dismissable"><div>LATE FEE-Late Fee<a href="#!" class="secondary-content"><i class="material-icons">send</i></a></div></li>
+                      <li class="collection-item dismissable"><div>REG-Registration Fee<a href="#!" class="secondary-content"><i class="material-icons">send</i></a></div></li>
+                      <li class="collection-item dismissable"><div>TUTION-Tution Fee<a href="#!" class="secondary-content"><i class="material-icons">send</i></a></div></li>
+                      <li class="collection-item dismissable"><div>SCH-Scholarship<a href="#!" class="secondary-content"><i class="material-icons">send</i></a></div></li>
+                      <li class="collection-item dismissable"><div>STAFF DISC-Staff Discount<a href="#!" class="secondary-content"><i class="material-icons">send</i></a></div></li>
+                  </ul>
+                  <div class="col s.5"></div>
+                  <ul class="collection with-header col l5">
+                      <li class="collection-header"><h5>Selected Services</h5></li>
+                      <li class="collection-item ">LATE FEE-Late Fee<span class="badge">Other Charge</span></li>
+                      <li class="collection-item ">REG-Registration Fee<span class="badge">Billing Charge</span></li>
+                      <li class="collection-item ">TUTION-Tution Fee<span class="badge">Billing Charge</span></li>
+                    </ul>
+                 </div> 
+                           <div class="step-actions">
+                              <button class="waves-effect waves-dark btn next-step">CONTINUE</button>
+                              <button class="waves-effect waves-dark btn-flat previous-step">BACK</button>
+                           </div>
+                        </div>
+                     </li>
+                     <li class="step">
+                        <div class="step-title waves-effect waves-dark">Review Amounts</div>
+                        <div class="step-content">
+                          <table id="example" class="mdl-data-table" cellspacing="0" width="100%">
+                  <thead>
+                      <tr>
+                          <th>Student ID</th>
+                          <th>Student Name</th>
+                          <th>Billing Charges</th>
+                          <th>Amount</th>
+                          <th>Family Code</th>
+                          <th>Family/Sponsor Name</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr>
+                          
+                          <td>SI004</td>
+                          <td>Tiger Nixon</td>
+                          <td>REG-Registration Fee</td>
+                          <td>1250.00</td>
+                          <td>NI001</td>
+                          <td>Mr.Mrs Nixon</td>
+                      </tr>
+                      <tr>
+                          
+                          <td>SI005</td>
+                          <td>Garrett Winters</td>
+                          <td>REG-Registration Fee</td>
+                          <td>1250.00</td>
+                          <td>WI001</td>
+                          <td>Mr.Mrs Winters</td>
+                      </tr>
+                      <tr>
+                          
+                          <td>SI006</td>
+                          <td>Ashton Cox</td>
+                          <td>REG-Registration Fee</td>
+                          <td>1250.00</td>
+                          <td>CO001</td>
+                          <td>Mr.Mrs Cox</td>
+                      </tr>
+                      <tr>
+                          
+                          <td>SI007</td>
+                          <td>Cedric Kelly</td>
+                          <td>REG-Registration Fee</td>
+                          <td>1250.00</td>
+                          <td>KE001</td>
+                          <td>Mr.Mrs Kelly</td>
+                      </tr>
+                      <tr>
+                          
+                          <td>SI008</td>
+                          <td>Airi Satou</td>
+                          <td>REG-Registration Fee</td>
+                          <td>1250.00</td>
+                          <td>SA001</td>
+                          <td>Mr.Mrs Satou</td>
+                      </tr>
+                      <tr>
+                          
+                          <td>SI009</td>
+                          <td>Brielle Williamson</td>
+                          <td>REG-Registration Fee</td>
+                          <td>1250.00</td>
+                          <td>WI002</td>
+                          <td>Mr.Mrs Williamson</td>
+                      </tr>
+                      <tr>
+                          
+                          <td>SI0010</td>
+                          <td>Herrod Chandler</td>
+                          <td>REG-Registration Fee</td>
+                          <td>1250.00</td>
+                          <td>CH001</td>
+                          <td>Mr.Mrs Chandler</td>
+                      </tr>
+                      <tr>
+                          
+                          <td>SI0011</td>
+                          <td>Rhona Davidson</td>
+                          <td>REG-Registration Fee</td>
+                          <td>1250.00</td>
+                          <td>DA001</td>
+                          <td>Mr.Mrs Davidson</td>
+                      </tr>
+                      <tr>
+                          
+                          <td>SI0012</td>
+                          <td>Colleen Hurst</td>
+                          <td>REG-Registration Fee</td>
+                          <td>1250.00</td>
+                          <td>HU001</td>
+                          <td>Mr.Mrs Hurst</td>
+                      </tr>
+                  </tbody>
+              </table>
+                           <div class="step-actions">
+                              <button class="waves-effect waves-dark btn next-step">CONTINUE</button>
+                              <button class="waves-effect waves-dark btn-flat previous-step">BACK</button>
+                           </div>
+                        </div>
+                     </li>
+                     <li class="step">
+                        <div class="step-title waves-effect waves-dark">Review Recurrence</div>
+                        <div class="step-content">
+                        <div class="row">
+                              <!--<span class="col left"><i class="material-icons small">settings</i></span>
+                                <h5 class="col left">Recurrence</h5>-->
+                              <span class="col right">
+                                <div class="input-field ">
+                                <select>
+                                    <option value="" disabled selected>Payment Terms</option>
+                                    <option value="1">Immediate</option>
+                                    <option value="2">30 Day Credit</option>
+                                    <option value="3">45 Day Credit</option>
+                                    <option value="3">60 Day Credit</option>
+                                </select>
+                                <label></label>
+                            </div>
+                              </span>
+                            </div>
+                            
+                            <div class="card-tabs">
+                            <ul id="tabs-swipe-demo" class="tabs">
+                                <li class="tab col s6"><a class="active" href="#test-swipe-1">Set Patterns to Specify Charge Dates</a></li>
+                                <li class="tab col s6"><a href="#test-swipe-2">Specify Charge Dates Manually</a></li>
+                             </ul>
+                            </div>
+                            <div class="card-content grey lighten-4">
+                              <div id="test-swipe-1" class="col s12">
+                                <div class="row">
+                                  <div class="input-field col s6">
+                                    <input placeholder="Placeholder" id="first_name" type="Number" class="validate">
+                                      <label for="first_name">No of Times</label>
+                                  </div>
+                                  <div class="input-field col s6">
+                                        <input type="text" class="datepicker">
+                                        <label>Charge From</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                  <div class=" col s6">
+                                    <input class="with-gap" name="group1" type="radio" id="monthly_rec"/>
+                                    <label for="monthly_rec">Monthly</label>
+                                  </div>
+                                  <div class=" col s6">
+                                      <input class="with-gap" name="group1" type="radio" id="weekly_rec"/>
+                                    <label for="weekly_rec">Weekly</label>
+                                  </div>
+                                </div>
+                                <br>
+                                <div class="row">
+                                  <div class="col l12" id="month_rec_cnt" style="display: none;">
+                                    <div class="col l6">
+                                  <div class="input-field col s6">
+                                     <input id="day" name="number" type="number" class="validate">
+                                     <label for="day">Day</label>
+                                  </div>
+                                  <div class="input-field col s6">
+                                     <input id="month" name="email" type="number" class="validate">
+                                     <label for="month">of every (_) months</label>
+                                  </div>
+                                  </div>
+                                  <div class="input-field col s2">
+                                     <select>
+                                      <option value="" disabled selected>The(_) day</option>
+                                      <option value="1">First</option>
+                                      <option value="2">Second</option>
+                                      <option value="3">Third</option>
+                                      <option value="4">Four</option>
+                                      <option value="5">Last</option>
+                                    </select>
+                                  </div>
+                                  <div class="input-field col s2">
+                                     <select>
+                                      <option value="" disabled selected>of</option>
+                                      <option value="1">Monday</option>
+                                      <option value="2">Tuesday</option>
+                                      <option value="3">Wednesday</option>
+                                      <option value="4">Thursday</option>
+                                      <option value="5">Friday</option>
+                                      <option value="6">Saturday</option>
+                                      <option value="7">Sunday</option>
+                                    </select>
+                                  </div>
+                                  <div class="input-field col s2">
+                                     <input id="month" name="email" type="number" class="validate">
+                                     <label for="month">every (_) months</label>
+                                  </div>
+                                  </div>
+                                   <div class="col s12" id="week_rec_cnt" style="display: none;">
+                                   <div class="input-field col s6">
+                                     <input id="month" name="email" type="number" class="validate">
+                                     <label for="month">Recur every (_) weeks on</label>
+                                  </div>  
+                                  <div class="col s6">
+                                    <ul>
+                                      <li class="col s"><input  type="checkbox" id="myCheckbox1" class="filled-in" /><label  for="myCheckbox1">Monday</label></li>
+                                      <li class="col s3"><input  type="checkbox" id="myCheckbox2" class="filled-in" /><label  for="myCheckbox2">Tuesday</label></li>
+                                      <li class="col s3"><input  type="checkbox" id="myCheckbox3" class="filled-in" /><label  for="myCheckbox3">Wednesday</label></li>
+                                      <li class="col s3"><input type="checkbox" id="myCheckbox4" class="filled-in" /><label  for="myCheckbox4">Thursday</label></li>
+                                      <li class="col s3"><input type="checkbox" id="myCheckbox5" class="filled-in" /><label  for="myCheckbox5">Friday</label></li>
+                                      <li class="col s3"><input type="checkbox" id="myCheckbox6" class="filled-in" /><label  for="myCheckbox6">Saturday</label></li>
+                                      <li class="col s3"><input type="checkbox" id="myCheckbox7" class="filled-in" /><label  for="myCheckbox7">Sunday</label></li>
+                                    </ul>
+                                  </div>
+                                </div>
+                                </div>
+                                <div class="row">
+                                  <div class="col l12">
+                                    <table id="table_container">
+                                      <thead>
+                                        <tr>
+                                            <th>S.No</th>
+                                            <th>Charge Date</th>
+                                            <th>Due Date</th>
+                                        </tr>
+                                      </thead>  
+                                      <tbody>
+                                         <tr>
+                                           <td>1</td>
+                                           <td>11/02/2013</td>
+                                           <td>11/03/2013</td>
+                                         </tr>
+                                         <tr>
+                                           <td>2</td>
+                                           <td>11/04/2013</td>
+                                           <td>11/05/2013</td>
+                                         </tr>                                                                     
+                                      </tbody>                     
+                                    </table>
+                                  </div>
+                                </div>
+                              </div>
+                              <div id="test-swipe-2" class="col s12">
+                                <div class="row">
+                                  <div class="col l12">
+                                    <table id="table_container">
+                                      <thead>
+                                        <tr>
+                                            <th>S.No</th>
+                                            <th>Charge Date</th>
+                                            <th>Due Date</th>
+                                        </tr>
+                                      </thead>  
+                                      <tbody>
+                                         <tr>
+                                           <td>1</td>
+                                           <td><input type="text" class="datepicker"></td>
+                                           <td><input type="text" class="datepicker"></td>
+                                         </tr>
+                                      </tbody>                     
+                                    </table>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                           <div class="step-actions">
+                              <button class="waves-effect waves-dark btn next-step">CONTINUE</button>
+                              <button class="waves-effect waves-dark btn-flat previous-step">BACK</button>
+                           </div>
+                        </div>
+                     </li>
+                     <li class="step">
+                        <div class="step-title waves-effect waves-dark">Confirm Batch</div>
+                        <div class="step-content">
+                          <div class="row">
+                            <h5>Batch Number : 2018012201</h5>
+                            <div class="col l12">
+                          
+                          <ul>                  
+                          <li class="right"><blockquote id="due">Total Billing Amount<br>$1325.00</blockquote></li>
+                          <li class="right"><blockquote id="pay">Total Payments<br>$0.00</blockquote></li>
+                          <li class="right"><blockquote id="credits">Total Credits<br>$.00</blockquote></li>
+                        </ul>
+                        </div>
+                      </div>
+                          <table id="example" class="mdl-data-table" cellspacing="0" width="100%">
+					        <thead>
+					            <tr>
+					                <th>Student ID</th>
+					                <th>Student Name</th>
+					                <th>Billing Charges</th>
+					                <th>Amount</th>
+					                <th>Family Code</th>
+					                <th>Family/Sponsor Name</th>
+					            </tr>
+					        </thead>
+					        <tbody>
+					            <tr>
+					                
+					                <td>SI004</td>
+					                <td>Tiger Nixon</td>
+					                <td>REG-Registration Fee</td>
+					                <td>1250.00</td>
+					                <td>NI001</td>
+					                <td>Mr.Mrs Nixon</td>
+					            </tr>
+					            <tr>
+					                
+					                <td>SI005</td>
+					                <td>Garrett Winters</td>
+					                <td>REG-Registration Fee</td>
+					                <td>1250.00</td>
+					                <td>WI001</td>
+					                <td>Mr.Mrs Winters</td>
+					            </tr>
+					            <tr>
+					                
+					                <td>SI006</td>
+					                <td>Ashton Cox</td>
+					                <td>REG-Registration Fee</td>
+					                <td>1250.00</td>
+					                <td>CO001</td>
+					                <td>Mr.Mrs Cox</td>
+					            </tr>
+					            <tr>
+					                
+					                <td>SI007</td>
+					                <td>Cedric Kelly</td>
+					                <td>REG-Registration Fee</td>
+					                <td>1250.00</td>
+					                <td>KE001</td>
+					                <td>Mr.Mrs Kelly</td>
+					            </tr>
+					            <tr>
+					                
+					                <td>SI008</td>
+					                <td>Airi Satou</td>
+					                <td>REG-Registration Fee</td>
+					                <td>1250.00</td>
+					                <td>SA001</td>
+					                <td>Mr.Mrs Satou</td>
+					            </tr>
+					            <tr>
+					                
+					                <td>SI009</td>
+					                <td>Brielle Williamson</td>
+					                <td>REG-Registration Fee</td>
+					                <td>1250.00</td>
+					                <td>WI002</td>
+					                <td>Mr.Mrs Williamson</td>
+					            </tr>
+					            <tr>
+					                
+					                <td>SI0010</td>
+					                <td>Herrod Chandler</td>
+					                <td>REG-Registration Fee</td>
+					                <td>1250.00</td>
+					                <td>CH001</td>
+					                <td>Mr.Mrs Chandler</td>
+					            </tr>
+					            <tr>
+					                
+					                <td>SI0011</td>
+					                <td>Rhona Davidson</td>
+					                <td>REG-Registration Fee</td>
+					                <td>1250.00</td>
+					                <td>DA001</td>
+					                <td>Mr.Mrs Davidson</td>
+					            </tr>
+					            <tr>
+					                
+					                <td>SI0012</td>
+					                <td>Colleen Hurst</td>
+					                <td>REG-Registration Fee</td>
+					                <td>1250.00</td>
+					                <td>HU001</td>
+					                <td>Mr.Mrs Hurst</td>
+					            </tr>
+					        </tbody>
+					    </table>
+                           <div class="step-actions">
+                              <button id="apply_batch" class="waves-effect waves-dark btn next-step" data-feedback="anyThing">Apply Batch</button>
+                           </div>
+                        </div>
+                        
+                     </li>
+                  </ul>
+               </div>
+               <div id="confirm_batch_table" class="card-content" style="display: none;">
+                <div class="row">
+                  <div class="col l12">
+                    <div class="input-field col s6">
+                        <input id="email" name="email" type="number" class="validate" value="2018012201" required>
+                        <label for="first_name">Batch Number</label>
+                    </div>
+                    <div class="col s1">
+                       <a class="waves-effect waves-light btn-floating btn-medium search_btn modal-trigger" href="#modal11"><i class="material-icons">search</i></a>
+                    </div>
+                    <div id="modal11" class="modal modal-fixed-footer">
+                           <div class="modal-content">
+                            <div class="row">
+                              <span class="col left"><i class="material-icons small">list</i></span>
+                                <h5 class="col left">
+                                Batch Management - Search</h5>
+                              </div>
+                              <div class="row">
+                              <span class="col l4">
+                                <div class="input-field ">
+                                <select>
+                                    <option value="" disabled selected>Search By</option>
+                                    <option value="1">Code</option>
+                                    <option value="2">Description</option>
+                                    <option value="3">Active/Inactive</option>
+                                </select>
+                                <label></label>
+                            </div>
+                              </span>
+                              <span class="col l4">
+                                <div class="input-field">
+                                     <input id="text" name="text" type="text" class="validate">
+                                     <label for="text">Value</label>
+                                  </div>
+                              </span>
+                              <div class="col s3">
+                                 <a class="waves-effect waves-light btn"  style="background-color: #0b5a96;font-size: 13px;"><i class="material-icons left">sync</i>Retrive</a>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col l12">
+                                <form class="col s12">
+                                  <input type="text" id="range_03" name="example_name" value="" />
+                                </form>
+                                <!--<form action="#">
+                                   <p class="range-field">
+                                     <input type="range" id="test5" min="0" max="100" />
+                                   </p>
+                                 </form>
+                                 <div class="row">
+                                   <div class="col l12">
+                                     <input type="text" id="prange">
+                                   </div>
+                                 </div>-->
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col l12">
+                                <table>
+                                  <thead>
+                                    <th>Code</th>
+                                    <th>Description</th>
+                                    <th>Active/Inactive</th>
+                                  </thead>
+                                  <tbody>
+                                    <tr>
+                                      <td>2018010001</td>
+                                      <td>Batch run on 01-01-2018</td>
+                                      <td>Yes</td>
+                                    </tr>
+                                    <tr>
+                                      <td>2018010002</td>
+                                      <td>Batch run on 02-01-2018</td>
+                                      <td>Yes</td>
+                                    </tr>
+                                    <tr>
+                                      <td>2018010003</td>
+                                      <td>Batch run on 03-01-2018</td>
+                                      <td>No</td>
+                                    </tr>
+                                    <tr>
+                                      <td>2018010004</td>
+                                      <td>Batch run on 04-01-2018</td>
+                                      <td>Yes</td>
+                                    </tr>
+                                    <tr>
+                                      <td>2018010005</td>
+                                      <td>Batch run on 05-01-2018</td>
+                                      <td>Yes</td>
+                                    </tr>
+                                    <tr>
+                                      <td>2018010006</td>
+                                      <td>Batch run on 06-01-2018</td>
+                                      <td>Yes</td>
+                                    </tr>
+                                    <tr>
+                                      <td>2018010007</td>
+                                      <td>Batch run on 07-01-2018</td>
+                                      <td>No</td>
+                                    </tr>
+                                    <tr>
+                                      <td>2018010008</td>
+                                      <td>Batch run on 08-01-2018</td>
+                                      <td>Yes</td>
+                                    </tr>
+                                    <tr>
+                                      <td>2018010009</td>
+                                      <td>Batch run on 09-01-2018</td>
+                                      <td>No</td>
+                                    </tr>
+                                    <tr>
+                                      <td>2018010010</td>
+                                      <td>Batch run on 10-01-2018</td>
+                                      <td>Yes</td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </div>
+                            </div>
+                            
+                            
+                           </div>
+                           <div class="modal-footer">
+                             <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Cancel</a>
+                             <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Save</a>
+                           </div>
+                         </div>
+                    <div class="col s2">
+                       <a class="waves-effect waves-light btn"  style="background-color: #0b5a96;font-size: 13px;"><i class="material-icons left">sync</i>Retrive</a>
+                    </div>
+                  </div>
+                </div>
+                <table id="example" class="mdl-data-table" cellspacing="0" width="100%">
+                  <thead>
+                      <tr>
+                          <th>Student ID</th>
+                          <th>Student Name</th>
+                          <th>Billing Charges</th>
+                          <th>Amount</th>
+                          <th>Family Code</th>
+                          <th>Family/Sponsor Name</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr>
+                          
+                          <td>SI004</td>
+                          <td>Tiger Nixon</td>
+                          <td>REG-Registration Fee</td>
+                          <td>1250.00</td>
+                          <td>NI001</td>
+                          <td>Mr.Mrs Nixon</td>
+                      </tr>
+                      <tr>
+                          
+                          <td>SI005</td>
+                          <td>Garrett Winters</td>
+                          <td>REG-Registration Fee</td>
+                          <td>1250.00</td>
+                          <td>WI001</td>
+                          <td>Mr.Mrs Winters</td>
+                      </tr>
+                      <tr>
+                          
+                          <td>SI006</td>
+                          <td>Ashton Cox</td>
+                          <td>REG-Registration Fee</td>
+                          <td>1250.00</td>
+                          <td>CO001</td>
+                          <td>Mr.Mrs Cox</td>
+                      </tr>
+                      <tr>
+                          
+                          <td>SI007</td>
+                          <td>Cedric Kelly</td>
+                          <td>REG-Registration Fee</td>
+                          <td>1250.00</td>
+                          <td>KE001</td>
+                          <td>Mr.Mrs Kelly</td>
+                      </tr>
+                      <tr>
+                          
+                          <td>SI008</td>
+                          <td>Airi Satou</td>
+                          <td>REG-Registration Fee</td>
+                          <td>1250.00</td>
+                          <td>SA001</td>
+                          <td>Mr.Mrs Satou</td>
+                      </tr>
+                      <tr>
+                          
+                          <td>SI009</td>
+                          <td>Brielle Williamson</td>
+                          <td>REG-Registration Fee</td>
+                          <td>1250.00</td>
+                          <td>WI002</td>
+                          <td>Mr.Mrs Williamson</td>
+                      </tr>
+                      <tr>
+                          
+                          <td>SI0010</td>
+                          <td>Herrod Chandler</td>
+                          <td>REG-Registration Fee</td>
+                          <td>1250.00</td>
+                          <td>CH001</td>
+                          <td>Mr.Mrs Chandler</td>
+                      </tr>
+                      <tr>
+                          
+                          <td>SI0011</td>
+                          <td>Rhona Davidson</td>
+                          <td>REG-Registration Fee</td>
+                          <td>1250.00</td>
+                          <td>DA001</td>
+                          <td>Mr.Mrs Davidson</td>
+                      </tr>
+                      <tr>
+                          
+                          <td>SI0012</td>
+                          <td>Colleen Hurst</td>
+                          <td>REG-Registration Fee</td>
+                          <td>1250.00</td>
+                          <td>HU001</td>
+                          <td>Mr.Mrs Hurst</td>
+                      </tr>
+                  </tbody>
+              </table>
+                        </div>
+            </div>
+            </div>
+            </div>
+
+            <div class="row">
+                <div class="fixed-action-btn horizontal click-to-toggle">
+                <a id="batch_management" class="btn-floating btn-large tooltipped red" data-position="left" data-delay="50" data-tooltip="Batch Management" style="display: block;">
+                  <i class="material-icons">list</i>
+                </a>
+                <a id="batch_entry" class="btn-floating btn-large tooltipped red" data-position="left" data-delay="50" data-tooltip="Batch Entry" style="display: none;">
+                  <i class="material-icons">view_list</i>
+                </a>
+            </div>
+                </div>
+
+        </main>
+        
+<!--footer-->
+          <footer class="page-footer">
+            <!--floating buttons-->
+                  <ul class="button-list">
+                    <li><a class="btn-floating  blue"><i class="material-icons">attach_file</i></a></li>
+                    <li><a class="btn-floating  pink lighten-2"><i class="material-icons">print</i></a></li>
+                    <li><a class="btn-floating yellow darken-1"><i class="material-icons">mail_outline</i></a></li>
+                    <li><a class="btn-floating deep-purple lighten-2"><i class="material-icons">create</i></a></li>
+                    <li><a class="btn-floating lime accent-4"><i class="material-icons">monetization_on</i></a></li>
+                    <li><a class="btn-floating   blue-grey lighten-1 "><i class="material-icons">block</i></a></li>
+                    <li><a class="btn-floating  teal "><i class="material-icons">note_add</i></a></li>
+                    <li><a id="save" class="btn-floating green" onclick="SaveTable()"><i class="material-icons">save</i></a></li>
+                    <li><a id="clear" class="btn-floating orange" onclick="DeleteRows()"><i class="material-icons">clear</i></a></li>
+                    <li><a class="btn-floating red"><i class="material-icons">delete</i></a></li>                    
+                  </ul>                
+                  </div> 
+          </footer>
+      <!--Import jQuery before materialize.js-->
+      <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+      <script type="text/javascript" src="js/materialize.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+      <script type="text/javascript" src="js/main_JS.js"></script>
+      <script src="js/materialize-stepper.min.js"></script>
+     
+      <script src="https://cdn.bootcss.com/ion-rangeslider/2.1.4/js/ion.rangeSlider.min.js"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+   <script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/dataTables.material.min.js"></script>
+   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.2.0/js/ion.rangeSlider.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.2.0/js/ion.rangeSlider.min.js"></script>
+ <script type="text/javascript">
+  $('select').material_select();
+  function anyThing() {
+  setTimeout(function(){ $('.stepper').nextStep(); }, 1500);
+}
+ $(function() {
+   
+  });
+$(function(){
+   $('.stepper').activateStepper();
+});
+ $(document).ready(function(){
+    // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
+       
+    $('#modal1').modal('open');
+     $('.modal').modal();
+
+  });
+$(document).ready(function() {
+    $('#example').DataTable( {
+        columnDefs: [
+            {
+                targets: [ 0, 1, 2 ],
+                className: 'mdl-data-table__cell--non-numeric'
+            }
+        ]
+    } );
+} );
+
+$("#range_03").ionRangeSlider({
+    type: "double",
+    grid: true,
+    min: 0,
+    max: 1000,
+    from: 200,
+    to: 800,
+    prefix: "$"
+});
+ </script>
+       
+  </body>
+</html>
